@@ -4,7 +4,6 @@ import 'package:cyrs_1/iconsCustom.dart';
 import 'package:cyrs_1/main.dart';
 import 'package:cyrs_1/user.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -38,7 +37,7 @@ class _RegistrarionPageState extends State<RegistrarionPage> {
   get cursorColor => cursorColor(const Color(0x00000000));
 
    register(User user) async {
-    var apiUrl = "http://10.100.25.103:80/test.php";
+    var apiUrl = "http://10.100.25.103:80/register.php";
     // String securePassword = md5.convert(utf8.encode(user.password)).toString();
     var response = await http.post(
       Uri.parse(apiUrl),
