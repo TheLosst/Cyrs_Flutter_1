@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:fluttertoast/fluttertoast.dart';
+import 'globals.dart' as globals;
 
 void main() {
   runApp(const Login());
@@ -42,29 +43,36 @@ class _LoginPageState extends State<LoginPage> {
 
   get cursorColor => cursorColor(const Color(0x00000000));
 
-  register(User user) async {
+  Future login(User user) async {
     var apiUrl = "http://10.100.25.103:80/login.php";
-    // String securePassword = md5.convert(utf8.encode(user.password)).toString();
-    var response = await http.post(
-      Uri.parse(apiUrl),
-      body: {
-        "username": user.username,
-        "password": user.password,
-        "phone": user.phone,
-      },
-    );
-    print("aaaaaaaaaaaaaa \n\n${response.body}\n\n aaaaaaaaaaaa");
+    var response = await http.post(Uri.parse(apiUrl), body: {
+      "username": user.username,
+      "password": user.password,
+    });
+    //print(response.body);
     var data = json.decode(response.body);
-    if (data == "Error") {
-      showDialog(
-          context: context,
-          builder: (context) =>
-          const AlertDialog(
-              title: Text("Ошибка"),
-              content: Text("Аккаунт с таким именем уже существует")));
-      print("\n\nERROR MUDAK\nUSER ALREADY EXISTS: ${user.username}");
+    //print(data.toString());
+    if (data == "Success") {
+      print("\n\nSUCCESSFUL LOGIN, NICE :)");
+      globals.user.setName(user.username);
+      globals.user.setPassword(user.password);
+      globals.user.setEmail(user.email);
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(builder: (context) => SucLogin()),
+            (Route<dynamic> route) => false,
+      );
+      //Navigator.push(context, MaterialPageRoute(builder: (context)=>DashBoard(),),);
     } else {
-      print("\n\nSUCCESS\nUSER ADDED: ${user.username}");
+      Fluttertoast.showToast(
+          msg: "Ошибка входа, логин и/или пароль неверны!",
+          toastLength: Toast.LENGTH_LONG,
+          fontSize: 26,
+          gravity: ToastGravity.TOP,
+          backgroundColor: Colors.transparent,
+          textColor: Colors.white
+      );
+      print("\n\nERROR: WRONG PASSWORD OR USERNAME YOU IDIOT");
     }
   }
 
@@ -111,9 +119,7 @@ class _LoginPageState extends State<LoginPage> {
                 controller: usernameController,
                 maxLength: 16,
                 decoration: const InputDecoration(
-                   prefixIcon: Icon(
-                      IconsCustom.user
-                    ),
+                   prefixIcon: Icon(Icons.account_box),
                   border: OutlineInputBorder(),
                   hintText: "Введите логин",
                   labelText: "Логин"
@@ -134,7 +140,8 @@ class _LoginPageState extends State<LoginPage> {
                 controller: passwdController,
                 maxLength: 32,
                 decoration: const InputDecoration(
-                  prefixIcon: Icon(IconsCustom.lock_open),
+
+                  prefixIcon: Icon(Icons.lock_open),
                     border: OutlineInputBorder(),
                     hintText: "Введите пароль",
                     labelText: "Пароль",
@@ -151,26 +158,10 @@ class _LoginPageState extends State<LoginPage> {
               child: ElevatedButton(
                 style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(Colors.cyanAccent)),
                 onPressed: () {
-                  User user = User(phone: "phone", username: "username", password: "password");
-                  register(user);
-                  if (true){
-                    Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(builder: (context) => SucLogin()),
-                          (Route<dynamic> route) => false,
-                    );
-                  }
-                  else
-                    {
-                      Fluttertoast.showToast(
-                          msg: "Ошибка входа, логин и пароль неверны!",
-                          toastLength: Toast.LENGTH_LONG,
-                          fontSize: 26,
-                          gravity: ToastGravity.TOP,
-                          backgroundColor: Colors.transparent,
-                          textColor: Colors.white
-                      );
-                    }
+                  User user = User(username: usernameController.text, password: passwdController.text, email: "");
+                  login(user);
+
+
                 },
                 child: const Text('Войти'),
               ),

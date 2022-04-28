@@ -5,6 +5,7 @@ import 'package:cyrs_1/user.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
+import 'globals.dart' as globals;
 
 class SucLogin extends StatelessWidget {
   const SucLogin({Key? key}) : super(key: key);
@@ -34,10 +35,10 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
         child: Text(
-            "Пользователь зарегестрирован, выполнен вход с использованием данных"
+            "Пользователь зарегестрирован," "выполнен вход с использованием данных" "Логин: " "${globals.user.username}" " Пароль: " "${globals.user.password}" " Email: " "${globals.user.email}"
         ),
       ),
     );

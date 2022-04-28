@@ -3,19 +3,21 @@ import 'package:flutter/cupertino.dart';
 import 'dart:convert';
 
 class User{
-  User({Key? key,required this.phone,required this.username,required this.password});
+  User({Key? key,required this.email,required this.username,required this.password});
   String username;
   String password;
-  String phone;
+  String email;
 
   void setName(String name){
     username = name;
   }
-  void setEmail(String phone){
-    this.phone = phone;
+  void setEmail(String email){
+    this.email = email;
   }
   void setPassword(String password){
     this.password = password;
   }
-
+  String getName(){
+    return username;
+  }
 }
