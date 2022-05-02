@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:cyrs_1/CatalogScreen.dart';
+import 'package:cyrs_1/navigationBar.dart';
 import 'package:cyrs_1/iconsCustom.dart';
 import 'package:cyrs_1/register.dart';
 import 'package:cyrs_1/user.dart';
