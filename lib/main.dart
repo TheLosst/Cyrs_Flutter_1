@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:cyrs_1/SucLogin.dart';
+import 'package:cyrs_1/CatalogScreen.dart';
 import 'package:cyrs_1/iconsCustom.dart';
 import 'package:cyrs_1/register.dart';
 import 'package:cyrs_1/user.dart';
@@ -9,6 +9,7 @@ import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:fluttertoast/fluttertoast.dart';
 import 'globals.dart' as globals;
+import 'package:crypto/crypto.dart';
 
 void main() {
   runApp(const Login());
@@ -45,9 +46,10 @@ class _LoginPageState extends State<LoginPage> {
 
   Future login(User user) async {
     var apiUrl = "http://10.100.25.103:80/login.php";
+    String securePassword = md5.convert(utf8.encode(user.password)).toString();
     var response = await http.post(Uri.parse(apiUrl), body: {
       "username": user.username,
-      "password": user.password,
+      "password": securePassword,
     });
     //print(response.body);
     var data = json.decode(response.body);
@@ -59,7 +61,7 @@ class _LoginPageState extends State<LoginPage> {
       globals.user.setEmail(user.email);
       Navigator.pushAndRemoveUntil(
         context,
-        MaterialPageRoute(builder: (context) => SucLogin()),
+        MaterialPageRoute(builder: (context) => Catalog()),
             (Route<dynamic> route) => false,
       );
       //Navigator.push(context, MaterialPageRoute(builder: (context)=>DashBoard(),),);
@@ -91,9 +93,9 @@ class _LoginPageState extends State<LoginPage> {
                   height: 350,
                   margin: const EdgeInsets.only(bottom: 0, left: 0, right: 0, top: 0),
                   decoration: BoxDecoration(
-                    color: Colors.cyan,
+                    color: const Color.fromRGBO(144, 205, 249, 1),
                       border: Border.all(
-                    color: Colors.cyan,
+                    color: const Color.fromRGBO(144, 205, 249, 1),
                   ),
                       borderRadius: const BorderRadius.all(Radius.circular(20))
                   ),
@@ -156,7 +158,7 @@ class _LoginPageState extends State<LoginPage> {
               width: 350,
               height: 50,
               child: ElevatedButton(
-                style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(Colors.cyanAccent)),
+                style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(const Color.fromRGBO(144, 205, 249, 1))),
                 onPressed: () {
                   User user = User(username: usernameController.text, password: passwdController.text, email: "");
                   login(user);
@@ -174,12 +176,12 @@ class _LoginPageState extends State<LoginPage> {
               width: 350,
               height: 50,
               child: ElevatedButton(
-                style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(Colors.cyanAccent)),
+                style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(const Color.fromRGBO(144, 205, 249, 1))),
                 onPressed: () {
                   Navigator.pushAndRemoveUntil(
                     context,
                     MaterialPageRoute(builder: (context) => const Registration()),
-                        (Route<dynamic> route) => false,
+                        (Route<dynamic> route) => true,
                   );
 
                 },

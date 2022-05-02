@@ -6,6 +6,7 @@ import 'package:cyrs_1/user.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:crypto/crypto.dart';
 
 class Registration extends StatelessWidget {
   const Registration({Key? key}) : super(key: key);
@@ -37,11 +38,12 @@ class _RegistrarionPageState extends State<RegistrarionPage> {
 
   register(User user) async {
     var apiUrl = "http://10.100.25.103:80/register.php";
+    String securePassword = md5.convert(utf8.encode(user.password)).toString();
     var response = await http.post(
       Uri.parse(apiUrl),
       body: {
         "username": user.username,
-        "password": user.password,
+        "password": securePassword,
         "email": user.email,
       },
     );
@@ -117,9 +119,9 @@ class _RegistrarionPageState extends State<RegistrarionPage> {
                 margin:
                     const EdgeInsets.only(bottom: 0, left: 0, right: 0, top: 0),
                 decoration: BoxDecoration(
-                    color: Colors.cyan,
+                    color: const Color.fromRGBO(144, 205, 249, 1),
                     border: Border.all(
-                      color: Colors.cyan,
+                      color: const Color.fromRGBO(144, 205, 249, 1),
                     ),
                     borderRadius: const BorderRadius.all(Radius.circular(20))),
                 child: const Padding(
@@ -217,7 +219,7 @@ class _RegistrarionPageState extends State<RegistrarionPage> {
               child: ElevatedButton(
                 style: ButtonStyle(
                     backgroundColor:
-                        MaterialStateProperty.all<Color>(Colors.cyanAccent)),
+                        MaterialStateProperty.all<Color>(const Color.fromRGBO(144, 205, 249, 1))),
                 onPressed: () {
                   User user = User(
                       username: usernameController.text,
