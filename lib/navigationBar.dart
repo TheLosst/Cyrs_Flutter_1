@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:cyrs_1/iconsCustom.dart';
 import 'package:cyrs_1/main.dart';
+import 'package:cyrs_1/profile.dart';
 import 'package:cyrs_1/register.dart';
 import 'package:cyrs_1/user.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +25,9 @@ class _CatalogState extends State<Catalog> {
 
   final List<Widget> _children = [
     Registration(),
-    LoginPage(title: '',)
+    LoginPage(title: '',),
+    Registration(),
+    Profile()
   ];
 
   void onTapped(int index) {
