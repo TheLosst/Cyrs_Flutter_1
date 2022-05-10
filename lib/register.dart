@@ -37,7 +37,7 @@ class _RegistrarionPageState extends State<RegistrarionPage> {
   get cursorColor => cursorColor(const Color(0x00000000));
 
   register(User user) async {
-    var apiUrl = "http://10.100.25.103:80/register.php";
+    var apiUrl = "http://192.168.0.108:80/register.php";
     String securePassword = md5.convert(utf8.encode(user.password)).toString();
     var response = await http.post(
       Uri.parse(apiUrl),

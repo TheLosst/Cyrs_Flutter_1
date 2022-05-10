@@ -45,20 +45,27 @@ class _LoginPageState extends State<LoginPage> {
   get cursorColor => cursorColor(const Color(0x00000000));
 
   Future login(User user) async {
-    var apiUrl = "http://10.100.25.103:80/login.php";
+    var apiUrl = "http://192.168.0.108/login.php";
+    var profilepage = "http://192.168.0.108/wtf.php";
     String securePassword = md5.convert(utf8.encode(user.password)).toString();
     var response = await http.post(Uri.parse(apiUrl), body: {
       "username": user.username,
       "password": securePassword,
     });
+    var responseProfile = await http.post(Uri.parse(profilepage), body: {
+      "username": user.username,
+    });
     //print(response.body);
     var data = json.decode(response.body);
-    //print(data.toString());
+    var profile = json.decode(responseProfile.body);
+    String tempProfile = profile.toString();
+    tempProfile = tempProfile.replaceFirst('[{email: ', '').replaceFirst('}]', '');
+    print(tempProfile);
     if (data == "Success") {
       print("\n\nSUCCESSFUL LOGIN, NICE :)");
       globals.user.setName(user.username);
       globals.user.setPassword(user.password);
-      globals.user.setEmail(user.email);
+      globals.user.setEmail(tempProfile);
       Navigator.pushAndRemoveUntil(
         context,
         MaterialPageRoute(builder: (context) => Catalog()),

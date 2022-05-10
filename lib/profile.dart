@@ -18,7 +18,7 @@ class Profile extends StatefulWidget {
 }
 
 final TextEditingController emailField =
-    TextEditingController();
+    TextEditingController(text: user.email);
 
 class _ProfileState extends State<Profile> {
   @override
@@ -45,24 +45,44 @@ class _ProfileState extends State<Profile> {
                             borderRadius:
                                 const BorderRadius.all(Radius.circular(500))),
                       ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(top: 280),
+                      child: Center(
+                        child: Text(
+                          user.username,
+                          style: TextStyle(color: Colors.blue, fontSize: 16),
+                        ),
+                      ),
                     )
                   ],
                 ),
               ),
             ),
             Center(
-              child: TextFormField(
-                enabled: false,
-                controller: emailField,
-                textAlign: TextAlign.center,
-                decoration: const InputDecoration(
-                  prefixIcon: Icon(Icons.email),
-                  border: OutlineInputBorder(),
-                  labelText: "Email",
-                  
-                ),
+                child: Padding(
+              padding: EdgeInsets.all(0),
+              child: Stack(
+                children: [
+                  Container(
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 20, right: 20),
+                      child: TextField(
+                        controller: emailField,
+                        enabled: false,
+                        readOnly: true,
+                        textAlign: TextAlign.center,
+                        decoration: const InputDecoration(
+                          prefixIcon: Icon(Icons.email),
+                          border: OutlineInputBorder(),
+                          labelText: "email:",
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ),
+            )),
           ],
         ),
       ),
