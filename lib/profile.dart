@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:crypto/crypto.dart';
+import 'globals.dart' as globals;
+import 'globals.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -14,6 +16,9 @@ class Profile extends StatefulWidget {
   @override
   State<Profile> createState() => _ProfileState();
 }
+
+final TextEditingController emailField =
+    TextEditingController();
 
 class _ProfileState extends State<Profile> {
   @override
@@ -42,6 +47,19 @@ class _ProfileState extends State<Profile> {
                       ),
                     )
                   ],
+                ),
+              ),
+            ),
+            Center(
+              child: TextFormField(
+                enabled: false,
+                controller: emailField,
+                textAlign: TextAlign.center,
+                decoration: const InputDecoration(
+                  prefixIcon: Icon(Icons.email),
+                  border: OutlineInputBorder(),
+                  labelText: "Email",
+                  
                 ),
               ),
             ),

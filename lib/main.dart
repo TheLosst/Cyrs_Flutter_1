@@ -142,7 +142,6 @@ class _LoginPageState extends State<LoginPage> {
                 controller: passwdController,
                 maxLength: 32,
                 decoration: const InputDecoration(
-
                   prefixIcon: Icon(Icons.lock_open),
                     border: OutlineInputBorder(),
                     hintText: "Введите пароль",
