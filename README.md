@@ -1,16 +1,12 @@
-# cyrs_1
+# Curs
+Курсовая работа 2 курс
 
-A new Flutter project.
+До сдачи курсовой остался чуть больше месяца, а я только приступил к выполнению...
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+![IMG_0882](https://user-images.githubusercontent.com/70810051/165185100-254e1e7c-0618-46cc-8379-b6ba30342f67.jpg)
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Что-ж, нас ждет тернистый путь...
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
