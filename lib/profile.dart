@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:cyrs_1/iconsCustom.dart';
 import 'package:cyrs_1/main.dart';
+import 'package:cyrs_1/register.dart';
 import 'package:cyrs_1/user.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -60,29 +61,44 @@ class _ProfileState extends State<Profile> {
               ),
             ),
             Center(
-                child: Padding(
-              padding: EdgeInsets.all(0),
-              child: Stack(
+                child: Stack(
                 children: [
-                  Container(
-                    child: Padding(
-                      padding: EdgeInsets.only(left: 20, right: 20),
-                      child: TextField(
-                        controller: emailField,
-                        enabled: false,
-                        readOnly: true,
-                        textAlign: TextAlign.center,
-                        decoration: const InputDecoration(
-                          prefixIcon: Icon(Icons.email),
-                          border: OutlineInputBorder(),
-                          labelText: "email:",
-                        ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20, right: 20),
+                    child: TextField(
+                      controller: emailField,
+                      enabled: false,
+                      readOnly: true,
+                      textAlign: TextAlign.center,
+                      decoration: const InputDecoration(
+                        prefixIcon: Icon(Icons.email),
+                        border: OutlineInputBorder(),
+                        labelText: "email:",
                       ),
                     ),
                   ),
                 ],
               ),
-            )),
+            ),
+            Padding(
+              padding: EdgeInsets.all(30),
+              child: Center(
+              child:SizedBox(
+                width: 350,
+                height: 50,
+                child: ElevatedButton(
+                  style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(const Color.fromRGBO(144, 205, 249, 1))),
+                  onPressed: () {
+                    Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Login()),
+                        (Route<dynamic> route) => false,
+                  );
+                  }, child: Text("Выход из аккаунта ${user.username}."),
+                ),
+              )
+              )
+            )
           ],
         ),
       ),

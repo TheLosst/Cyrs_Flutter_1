@@ -45,8 +45,8 @@ class _LoginPageState extends State<LoginPage> {
   get cursorColor => cursorColor(const Color(0x00000000));
 
   Future login(User user) async {
-    var apiUrl = "http://192.168.0.108/login.php";
-    var profilepage = "http://192.168.0.108/wtf.php";
+    var apiUrl = "http://192.168.0.109:80/login.php";
+    var profilepage = "http://192.168.0.109:80/wtf.php";
     String securePassword = md5.convert(utf8.encode(user.password)).toString();
     var response = await http.post(Uri.parse(apiUrl), body: {
       "username": user.username,
