@@ -4,6 +4,7 @@ import 'package:cyrs_1/iconsCustom.dart';
 import 'package:cyrs_1/main.dart';
 import 'package:cyrs_1/profile.dart';
 import 'package:cyrs_1/register.dart';
+import 'package:cyrs_1/shopList.dart';
 import 'package:cyrs_1/user.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -24,7 +25,7 @@ class _CatalogState extends State<Catalog> {
   final TextEditingController test = TextEditingController();
 
   final List<Widget> _children = [
-    Registration(),
+    ShopList(),
     LoginPage(title: '',),
     Registration(),
     Profile()

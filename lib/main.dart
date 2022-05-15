@@ -57,8 +57,8 @@ class _LoginPageState extends State<LoginPage> {
     });
     //print(response.body);
     var data = json.decode(response.body);
-    var profile = json.decode(responseProfile.body);
-    String tempProfile = profile.toString();
+    var profileEmail = json.decode(responseProfile.body);
+    String tempProfile = profileEmail.toString();
     tempProfile = tempProfile.replaceFirst('[{email: ', '').replaceFirst('}]', '');
     print(tempProfile);
     if (data == "Success") {

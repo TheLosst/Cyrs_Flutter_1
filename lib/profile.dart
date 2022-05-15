@@ -25,8 +25,7 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
+      body: Column(
           children: [
             Center(
               child: Padding(
@@ -101,7 +100,6 @@ class _ProfileState extends State<Profile> {
             )
           ],
         ),
-      ),
     );
   }
 }

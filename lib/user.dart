@@ -6,7 +6,7 @@ class User{
   User({Key? key,required this.email,required this.username,required this.password});
   String username;
   String password;
-  String email;
+  String email = "Server Error";
 
   void setName(String name){
     username = name;
