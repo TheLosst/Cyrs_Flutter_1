@@ -1,31 +1,20 @@
-import 'dart:convert';
-import 'dart:ffi';
-
-import 'package:cyrs_1/iconsCustom.dart';
-import 'package:cyrs_1/main.dart';
-import 'package:cyrs_1/register.dart';
-import 'package:cyrs_1/user.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:crypto/crypto.dart';
-import 'globals.dart' as globals;
-import 'globals.dart';
 
-class ShopList extends StatefulWidget {
-  const ShopList({Key? key}) : super(key: key);
+class Favourites extends StatefulWidget {
+  const Favourites({Key? key}) : super(key: key);
 
   @override
-  State<ShopList> createState() => _ShopListState();
+  State<Favourites> createState() => _FavouritesState();
 }
 
-class _ShopListState extends State<ShopList> {
+class _FavouritesState extends State<Favourites> {
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(top: 0, bottom: 12),
       child: ListView.separated(
-        itemCount: 5,
+        itemCount: 1,
         itemBuilder: (BuildContext context, int index) {
           return Container(
             width: 300,
@@ -52,7 +41,7 @@ class _ShopListState extends State<ShopList> {
                           color: const Color.fromRGBO(255, 255, 255, 1),
                         ),
                         borderRadius:
-                            const BorderRadius.all(Radius.circular(20))),
+                        const BorderRadius.all(Radius.circular(20))),
                     child: SizedBox(
                       width: 120,
                       height: 85,
@@ -65,7 +54,7 @@ class _ShopListState extends State<ShopList> {
                   child: SizedBox(
                       width: 200,
                       child: Text(
-                        "Sampleqweqweqweqweqwewqeqwe",
+                        "Избранное текст",
                         maxLines: 3,
                         style: TextStyle(color: Colors.black.withOpacity(0.5)),
                       )),
@@ -90,17 +79,43 @@ class _ShopListState extends State<ShopList> {
                             color: const Color.fromRGBO(255, 255, 255, 1),
                           ),
                           borderRadius:
-                              const BorderRadius.all(Radius.circular(5))),
+                          const BorderRadius.all(Radius.circular(5))),
                       child: Transform.scale(
                         scale: 3,
                         child: IconButton(
                           icon: Icon(
-                            Icons.favorite_border,
+                            Icons.highlight_remove,
                             size: 6,
                           ),
                           tooltip: null,
                           onPressed:
-                              () {}, //TODO: Добавить смену иконки при нажатии и отправлять пост запрос на добавление id в бд для избранного и корзины
+                              () {}, //TODO: Реализовать удаление товара из бд пользователя
+                        ),
+                      )),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(top: 20, left: 365),
+                  child: Container(
+                      width: 24,
+                      height: 24,
+                      decoration: BoxDecoration(
+                          color: const Color.fromRGBO(144, 205, 249, 1),
+                          border: Border.all(
+                            color: const Color.fromRGBO(144, 205, 249, 1),
+                          ),
+                          borderRadius:
+                          const BorderRadius.all(Radius.circular(5))),
+                      child: Transform.scale(
+                        scale: 3,
+                        child: IconButton(
+                          icon: Icon(
+                            Icons.favorite_border_rounded,
+                            size: 6,
+                            color: Colors.red,
+                          ),
+                          tooltip: null,
+                          onPressed:
+                              () {}, //TODO: Реализовать удаление товара из бд пользователя
                         ),
                       )),
                 ),
@@ -115,7 +130,7 @@ class _ShopListState extends State<ShopList> {
                             color: const Color.fromRGBO(195, 0, 70, 1),
                           ),
                           borderRadius:
-                              const BorderRadius.all(Radius.circular(50))),
+                          const BorderRadius.all(Radius.circular(50))),
                       child: ElevatedButton(
                         style: ButtonStyle(
                             shape: MaterialStateProperty.all<
