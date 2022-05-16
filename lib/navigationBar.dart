@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/services.dart';
 import 'package:cyrs_1/favourits.dart';
 import 'package:cyrs_1/main.dart';
 import 'package:cyrs_1/profile.dart';
@@ -17,6 +18,8 @@ class Catalog extends StatefulWidget {
 
   @override
   State<Catalog> createState() => _CatalogState();
+
+
 }
 
 class _CatalogState extends State<Catalog> {
@@ -24,6 +27,7 @@ class _CatalogState extends State<Catalog> {
   int _selectedIndex = 0;
   PageController pageController = PageController();
   final TextEditingController test = TextEditingController();
+
 
   final List<Widget> _children = [
     ShopList(),
@@ -37,20 +41,19 @@ class _CatalogState extends State<Catalog> {
       _selectedIndex = index;
       pageController.animateToPage(index,
           duration: Duration(milliseconds: 900), curve: Curves.easeInOut);
+
     });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [SystemUiOverlay.bottom]);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(titlesArray[_selectedIndex]),
-        centerTitle: true,
-        leading: GestureDetector(
-          onTap: () {},
-          child: Icon(Icons.search_rounded),
-        ),
-      ),
       body: PageView(
         physics: const NeverScrollableScrollPhysics(),
         controller: pageController,

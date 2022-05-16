@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:cyrs_1/globals.dart';
 import 'package:cyrs_1/navigationBar.dart';
 import 'package:cyrs_1/iconsCustom.dart';
 import 'package:cyrs_1/register.dart';
@@ -13,6 +14,7 @@ import 'package:crypto/crypto.dart';
 
 void main() {
   runApp(const Login());
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [SystemUiOverlay.bottom]);
 }
 
 class Login extends StatelessWidget {
@@ -45,8 +47,8 @@ class _LoginPageState extends State<LoginPage> {
   get cursorColor => cursorColor(const Color(0x00000000));
 
   Future login(User user) async {
-    var apiUrl = "http://192.168.69.101:80/login.php";
-    var profilepage = "http://192.168.69.101:80/wtf.php";
+    var apiUrl = "$connIp/login.php";
+    var profilepage = "$connIp/wtf.php";
     String securePassword = md5.convert(utf8.encode(user.password)).toString();
     var response = await http.post(Uri.parse(apiUrl), body: {
       "username": user.username,
@@ -104,7 +106,7 @@ class _LoginPageState extends State<LoginPage> {
                       border: Border.all(
                     color: const Color.fromRGBO(144, 205, 249, 1),
                   ),
-                      borderRadius: const BorderRadius.all(Radius.circular(20))
+                      borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(20), bottomRight: Radius.circular(20)),
                   ),
                 child: const Padding(
                 padding: EdgeInsets.only(top: 170),
