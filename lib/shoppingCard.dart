@@ -49,6 +49,7 @@ class _ShoppingCardState extends State<ShoppingCard> {
         child: ListView.separated(
           itemCount: 1,
           itemBuilder: (BuildContext context, int index) {
+            int counter = 1;
             return Container(
               width: 300,
               height: 154,
