@@ -119,11 +119,49 @@ class _ShoppingCardState extends State<ShoppingCard> {
                         ),
                       )),
                 ),
-                Padding(padding: EdgeInsets.only(top: 110, left: 285), child: Container(
+                Padding(padding: EdgeInsets.only(top: 110, left: 285),
+                  child: Container(
                   width: 90,
                   height: 24,
                   color: Color.fromRGBO(255, 255, 255, 1),
-                ),)
+                    child: Stack(
+                      children: [
+                        Padding(
+                            padding: EdgeInsets.only(left: 65),
+                          child: Transform.scale(
+                            scale: 3,
+                            child: IconButton(
+                              icon: Icon(
+                                Icons.add_circle_outline,
+                                size: 6,
+                                color: Colors.red,
+                              ),
+                              tooltip: null,
+                              onPressed:
+                                  () {}, //TODO: Реализовать удаление товара из бд пользователя
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                          child: Transform.scale(
+                            scale: 3,
+                            child: IconButton(
+                              icon: Icon(
+                                Icons.add_circle_outline,
+                                size: 6,
+                                color: Colors.red,
+                              ),
+                              tooltip: null,
+                              onPressed:
+                                  () {}, //TODO: Реализовать удаление товара из бд пользователя
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                ),
+                )
               ],
             ),
           );
