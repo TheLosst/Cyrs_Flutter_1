@@ -47,6 +47,7 @@ dependencies:
   cart_counter: ^0.0.1
   dhk_counter: ^0.0.2
   http: ^0.13.4
+  progress_indicators: ^1.0.0
 
 dev_dependencies:
   flutter_test:

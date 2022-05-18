@@ -1,19 +1,37 @@
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 
 class DiskProp
 {
-  const DiskProp({Key? key,required this.id, required this.name, required this.description, required this.cost});
-  final int id;
-  final String name;
-  final String description;
-  final int cost;
+  DiskProp({required this.id, required this.name, required this.description, required this.cost});
+  late String id;
+  late String name;
+  late String description;
+  late int cost;
 
   factory DiskProp.fromJson(Map<String, dynamic> json) {
-    return DiskProp(
-      id: json['id'],
-      name: json['name'],
-      description: json['description'],
-      cost: json['cost']
-    );
+    final id = json['id'] as String;
+    final name = json['name'] as String;
+    final description = json['description'] as String;
+    final cost = json['cost'] as int;
+    return DiskProp(id: id, name: name, description: description, cost: cost);
   }
+
+  void setID(String data){
+    id = data;
+  }
+
+  void setName(String data){
+    name = data;
+  }
+
+  void setDescription(String data){
+    description = data;
+  }
+
+  void setCost(int data){
+    cost = data;
+  }
+
 }
