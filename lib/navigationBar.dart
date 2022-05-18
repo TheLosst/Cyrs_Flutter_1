@@ -74,19 +74,19 @@ class _CatalogState extends State<Catalog> {
           // (2)
           FluidNavBarIcon(
             icon: Icons.home,
-            backgroundColor: Color.fromRGBO(255, 255, 255, 1),
+            backgroundColor: Color.fromRGBO(144, 205, 249, 1),
           ),
           FluidNavBarIcon(
             icon: Icons.shopping_cart,
-            backgroundColor: Color.fromRGBO(255, 255, 255, 1),
+            backgroundColor: Color.fromRGBO(144, 205, 249, 1),
           ),
           FluidNavBarIcon(
             icon: Icons.favorite_border,
-            backgroundColor: Color.fromRGBO(255, 255, 255, 1),
+            backgroundColor: Color.fromRGBO(144, 205, 249, 1),
           ), // (3)
           FluidNavBarIcon(
             icon: Icons.account_circle_outlined,
-            backgroundColor: Color.fromRGBO(255, 255, 255, 1),
+            backgroundColor: Color.fromRGBO(144, 205, 249, 1),
           ),
         ],
         onChange: onTapped, // (4)
