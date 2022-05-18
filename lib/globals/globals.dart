@@ -1,6 +1,6 @@
 library cyrs_1.globals;
 
-import 'user.dart';
+import '../custom classes/user.dart';
 
 User user = User(email: "", username: "", password: "");
 

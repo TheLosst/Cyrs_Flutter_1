@@ -1,17 +1,17 @@
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
-import 'package:cyrs_1/favourits.dart';
-import 'package:cyrs_1/main.dart';
-import 'package:cyrs_1/profile.dart';
-import 'package:cyrs_1/register.dart';
-import 'package:cyrs_1/shopList.dart';
+import 'package:cyrs_1/pages/favourits.dart';
+import 'package:cyrs_1/registartation%20&%20login/main.dart';
+import 'package:cyrs_1/pages/profile.dart';
+import 'package:cyrs_1/registartation%20&%20login/register.dart';
+import 'package:cyrs_1/pages/shopList.dart';
 import 'package:cyrs_1/pages/shoppingCard.dart';
-import 'package:cyrs_1/user.dart';
+import 'package:cyrs_1/custom%20classes/user.dart';
 import 'package:fluid_bottom_nav_bar/fluid_bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'globals.dart' as globals;
+import 'globals/globals.dart' as globals;
 
 class Catalog extends StatefulWidget {
   const Catalog({Key? key}) : super(key: key);

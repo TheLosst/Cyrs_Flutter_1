@@ -1,24 +1,51 @@
+import 'dart:convert';
+
 import 'package:animation_search_bar/animation_search_bar.dart';
-import 'package:cyrs_1/favourits.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:cyrs_1/custom%20classes/iconsCustom.dart';
+import 'package:cyrs_1/registartation%20&%20login/main.dart';
+import 'package:cyrs_1/registartation%20&%20login/register.dart';
+import 'package:cyrs_1/custom%20classes/user.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import '../custom classes/diskProreties.dart';
+import '../globals/globals.dart' as globals;
+import '../globals/globals.dart';
+import 'package:http/http.dart' as http;
 
-class Favourites extends StatefulWidget {
-  const Favourites({Key? key}) : super(key: key);
+class ShopList extends StatefulWidget {
+  const ShopList({Key? key}) : super(key: key);
 
   @override
-  State<Favourites> createState() => _FavouritesState();
+  State<ShopList> createState() => _ShopListState();
 }
 
-class _FavouritesState extends State<Favourites> {
+class _ShopListState extends State<ShopList> {
   late TextEditingController controller = TextEditingController();
+  late Future<DiskProp> futureDiskProp;
+
+
 
   @override
   void initState() {
     super.initState();
-    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
-        overlays: [SystemUiOverlay.bottom]);
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [SystemUiOverlay.bottom]);
+    // futureDiskProp = fetchDiskDescr();
+    //DiskProp test = new DiskProp.fromJson(fetchDiskDescr());
+  }
+
+  Future<http.Response> getListData() {
+    return http.get(Uri.parse('$connIp/DiskProp.json'));
+  }
+
+  Future<DiskProp> fetchDiskDescr() async {
+    final response = await http.get(Uri.parse('$connIp/DiskProp.json'));
+    if (response.statusCode == 200) {
+      print(jsonDecode(response.body));
+      return jsonDecode(response.body);
+      // return DiskProp.fromJson(jsonDecode(response.body));
+    } else {
+      throw Exception('Ойбаный Ёобаный ОБЭМЭ!');
+    }
   }
 
   @override
@@ -40,14 +67,14 @@ class _FavouritesState extends State<Favourites> {
                   child: Center(
                       child: AnimationSearchBar(
                           isBackButtonVisible: false,
-                          centerTitle: 'Избранное',
+                          centerTitle: 'Каталог',
                           onChanged: (text) => debugPrint(text),
                           searchTextEditingController: controller,
                           horizontalPadding: 5))))),
       body: Padding(
         padding: EdgeInsets.only(top: 0, bottom: 12),
         child: ListView.separated(
-          itemCount: 1,
+          itemCount: 5,
           itemBuilder: (BuildContext context, int index) {
             return Container(
               width: 300,
@@ -88,7 +115,7 @@ class _FavouritesState extends State<Favourites> {
                     child: SizedBox(
                         width: 200,
                         child: Text(
-                          "Избранное текст",
+                          "Sampleqweqweqweqweqwewqeqwe",
                           maxLines: 3,
                           style:
                               TextStyle(color: Colors.black.withOpacity(0.5)),
@@ -119,38 +146,12 @@ class _FavouritesState extends State<Favourites> {
                           scale: 3,
                           child: IconButton(
                             icon: Icon(
-                              Icons.highlight_remove,
+                              Icons.favorite_border,
                               size: 6,
                             ),
                             tooltip: null,
                             onPressed:
-                                () {}, //TODO: Реализовать удаление товара из бд пользователя
-                          ),
-                        )),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(top: 20, left: 365),
-                    child: Container(
-                        width: 24,
-                        height: 24,
-                        decoration: BoxDecoration(
-                            color: const Color.fromRGBO(144, 205, 249, 1),
-                            border: Border.all(
-                              color: const Color.fromRGBO(144, 205, 249, 1),
-                            ),
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(5))),
-                        child: Transform.scale(
-                          scale: 3,
-                          child: IconButton(
-                            icon: Icon(
-                              Icons.favorite_border_rounded,
-                              size: 6,
-                              color: Colors.red,
-                            ),
-                            tooltip: null,
-                            onPressed:
-                                () {}, //TODO: Реализовать удаление товара из бд пользователя
+                                () {}, //TODO: Добавить смену иконки при нажатии и отправлять пост запрос на добавление id в бд для избранного и корзины
                           ),
                         )),
                   ),
@@ -176,7 +177,7 @@ class _FavouritesState extends State<Favourites> {
                               backgroundColor: MaterialStateProperty.all<Color>(
                                   const Color.fromRGBO(195, 0, 70, 1))),
                           onPressed: () {},
-                          //TODO: Добавить пост запрос на добавление ид в бд при нажатии на кнопку
+//TODO: Добавить пост запрос на добавление ид в бд при нажатии на кнопку
                           child: const Text("В корзину"),
                         )),
                   ),
@@ -192,3 +193,5 @@ class _FavouritesState extends State<Favourites> {
     );
   }
 }
+
+//

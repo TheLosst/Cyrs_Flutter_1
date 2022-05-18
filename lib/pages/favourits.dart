@@ -1,51 +1,24 @@
-import 'dart:convert';
-
 import 'package:animation_search_bar/animation_search_bar.dart';
-import 'package:cyrs_1/iconsCustom.dart';
-import 'package:cyrs_1/main.dart';
-import 'package:cyrs_1/register.dart';
-import 'package:cyrs_1/user.dart';
+import 'package:cyrs_1/pages/favourits.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'diskProreties.dart';
-import 'globals.dart' as globals;
-import 'globals.dart';
-import 'package:http/http.dart' as http;
 
-class ShopList extends StatefulWidget {
-  const ShopList({Key? key}) : super(key: key);
+class Favourites extends StatefulWidget {
+  const Favourites({Key? key}) : super(key: key);
 
   @override
-  State<ShopList> createState() => _ShopListState();
+  State<Favourites> createState() => _FavouritesState();
 }
 
-class _ShopListState extends State<ShopList> {
+class _FavouritesState extends State<Favourites> {
   late TextEditingController controller = TextEditingController();
-  late Future<DiskProp> futureDiskProp;
-
-
 
   @override
   void initState() {
     super.initState();
-    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [SystemUiOverlay.bottom]);
-    // futureDiskProp = fetchDiskDescr();
-    //DiskProp test = new DiskProp.fromJson(fetchDiskDescr());
-  }
-
-  Future<http.Response> getListData() {
-    return http.get(Uri.parse('$connIp/DiskProp.json'));
-  }
-
-  Future<DiskProp> fetchDiskDescr() async {
-    final response = await http.get(Uri.parse('$connIp/DiskProp.json'));
-    if (response.statusCode == 200) {
-      print(jsonDecode(response.body));
-      return jsonDecode(response.body);
-      // return DiskProp.fromJson(jsonDecode(response.body));
-    } else {
-      throw Exception('Ойбаный Ёобаный ОБЭМЭ!');
-    }
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
+        overlays: [SystemUiOverlay.bottom]);
   }
 
   @override
@@ -67,14 +40,14 @@ class _ShopListState extends State<ShopList> {
                   child: Center(
                       child: AnimationSearchBar(
                           isBackButtonVisible: false,
-                          centerTitle: 'Каталог',
+                          centerTitle: 'Избранное',
                           onChanged: (text) => debugPrint(text),
                           searchTextEditingController: controller,
                           horizontalPadding: 5))))),
       body: Padding(
         padding: EdgeInsets.only(top: 0, bottom: 12),
         child: ListView.separated(
-          itemCount: 5,
+          itemCount: 1,
           itemBuilder: (BuildContext context, int index) {
             return Container(
               width: 300,
@@ -115,7 +88,7 @@ class _ShopListState extends State<ShopList> {
                     child: SizedBox(
                         width: 200,
                         child: Text(
-                          "Sampleqweqweqweqweqwewqeqwe",
+                          "Избранное текст",
                           maxLines: 3,
                           style:
                               TextStyle(color: Colors.black.withOpacity(0.5)),
@@ -146,12 +119,38 @@ class _ShopListState extends State<ShopList> {
                           scale: 3,
                           child: IconButton(
                             icon: Icon(
-                              Icons.favorite_border,
+                              Icons.highlight_remove,
                               size: 6,
                             ),
                             tooltip: null,
                             onPressed:
-                                () {}, //TODO: Добавить смену иконки при нажатии и отправлять пост запрос на добавление id в бд для избранного и корзины
+                                () {}, //TODO: Реализовать удаление товара из бд пользователя
+                          ),
+                        )),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 20, left: 365),
+                    child: Container(
+                        width: 24,
+                        height: 24,
+                        decoration: BoxDecoration(
+                            color: const Color.fromRGBO(144, 205, 249, 1),
+                            border: Border.all(
+                              color: const Color.fromRGBO(144, 205, 249, 1),
+                            ),
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(5))),
+                        child: Transform.scale(
+                          scale: 3,
+                          child: IconButton(
+                            icon: Icon(
+                              Icons.favorite_border_rounded,
+                              size: 6,
+                              color: Colors.red,
+                            ),
+                            tooltip: null,
+                            onPressed:
+                                () {}, //TODO: Реализовать удаление товара из бд пользователя
                           ),
                         )),
                   ),
@@ -177,7 +176,7 @@ class _ShopListState extends State<ShopList> {
                               backgroundColor: MaterialStateProperty.all<Color>(
                                   const Color.fromRGBO(195, 0, 70, 1))),
                           onPressed: () {},
-//TODO: Добавить пост запрос на добавление ид в бд при нажатии на кнопку
+                          //TODO: Добавить пост запрос на добавление ид в бд при нажатии на кнопку
                           child: const Text("В корзину"),
                         )),
                   ),
@@ -193,5 +192,3 @@ class _ShopListState extends State<ShopList> {
     );
   }
 }
-
-//

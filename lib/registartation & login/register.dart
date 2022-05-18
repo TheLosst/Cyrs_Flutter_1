@@ -1,9 +1,9 @@
 import 'dart:convert';
 
-import 'package:cyrs_1/globals.dart';
-import 'package:cyrs_1/iconsCustom.dart';
-import 'package:cyrs_1/main.dart';
-import 'package:cyrs_1/user.dart';
+import 'package:cyrs_1/globals/globals.dart';
+import 'package:cyrs_1/custom%20classes/iconsCustom.dart';
+import 'package:cyrs_1/registartation%20&%20login/main.dart';
+import 'package:cyrs_1/custom%20classes/user.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:fluttertoast/fluttertoast.dart';
