@@ -46,6 +46,7 @@ dependencies:
   counter_button: ^1.0.1
   cart_counter: ^0.0.1
   dhk_counter: ^0.0.2
+  http: ^0.13.4
 
 dev_dependencies:
   flutter_test:
@@ -58,7 +59,6 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
   cupertino_icons: ^1.0.2
-  http: ^0.13.4
   flutter_markdown: ^0.6.9+1
   url_launcher: ^6.0.20
   flutter_bloc: ^7.3.3

@@ -2,6 +2,9 @@ import 'package:animation_search_bar/animation_search_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:http/http.dart' as http;
+import 'package:html/parser.dart' as parser;
+import 'package:html/dom.dart' as dom;
 
 class ShoppingCard extends StatefulWidget {
   const ShoppingCard({Key? key}) : super(key: key);
@@ -23,6 +26,7 @@ class _ShoppingCardState extends State<ShoppingCard> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: PreferredSize(
           preferredSize: const Size(double.infinity, 65),
@@ -187,7 +191,7 @@ class _ShoppingCardState extends State<ShoppingCard> {
                             color: Colors.red,
                           ),
                           tooltip: null,
-                          onPressed: () {},
+                          onPressed: () {counter = counter-1;},
                         ),
                       ),
                     ),
@@ -207,11 +211,15 @@ class _ShoppingCardState extends State<ShoppingCard> {
                           ),
                           tooltip: null,
                           onPressed:
-                              () {}, //TODO: Реализовать удаление товара из бд пользователя
+                              () {counter = counter + 1;}, //TODO: Реализовать удаление товара из бд пользователя
                         ),
                       ),
                     ),
                   ),
+                  Padding(padding: EdgeInsets.only(left: 327, top: 113),
+                  child: Text(
+                    "$counter"
+                  ),)
                 ],
               ),
             );

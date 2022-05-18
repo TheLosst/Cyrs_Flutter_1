@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:cyrs_1/diskProreties.dart';
 import 'package:cyrs_1/globals.dart';
 import 'package:cyrs_1/navigationBar.dart';
 import 'package:cyrs_1/iconsCustom.dart';
@@ -44,7 +45,9 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
 
+
   get cursorColor => cursorColor(const Color(0x00000000));
+
 
   Future login(User user) async {
     var apiUrl = "$connIp/login.php";
@@ -85,6 +88,12 @@ class _LoginPageState extends State<LoginPage> {
       );
       print("\n\nERROR: WRONG PASSWORD OR USERNAME YOU IDIOT");
     }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
   }
 
   final TextEditingController usernameController = TextEditingController();

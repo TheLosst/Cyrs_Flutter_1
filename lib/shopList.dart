@@ -7,8 +7,10 @@ import 'package:cyrs_1/register.dart';
 import 'package:cyrs_1/user.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'diskProreties.dart';
 import 'globals.dart' as globals;
 import 'globals.dart';
+import 'package:http/http.dart' as http;
 
 class ShopList extends StatefulWidget {
   const ShopList({Key? key}) : super(key: key);
@@ -19,11 +21,31 @@ class ShopList extends StatefulWidget {
 
 class _ShopListState extends State<ShopList> {
   late TextEditingController controller = TextEditingController();
+  late Future<DiskProp> futureDiskProp;
+
+
 
   @override
   void initState() {
     super.initState();
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [SystemUiOverlay.bottom]);
+    // futureDiskProp = fetchDiskDescr();
+    //DiskProp test = new DiskProp.fromJson(fetchDiskDescr());
+  }
+
+  Future<http.Response> getListData() {
+    return http.get(Uri.parse('$connIp/DiskProp.json'));
+  }
+
+  Future<DiskProp> fetchDiskDescr() async {
+    final response = await http.get(Uri.parse('$connIp/DiskProp.json'));
+    if (response.statusCode == 200) {
+      print(jsonDecode(response.body));
+      return jsonDecode(response.body);
+      // return DiskProp.fromJson(jsonDecode(response.body));
+    } else {
+      throw Exception('Ойбаный Ёобаный ОБЭМЭ!');
+    }
   }
 
   @override

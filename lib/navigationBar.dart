@@ -6,7 +6,7 @@ import 'package:cyrs_1/main.dart';
 import 'package:cyrs_1/profile.dart';
 import 'package:cyrs_1/register.dart';
 import 'package:cyrs_1/shopList.dart';
-import 'package:cyrs_1/shoppingCard.dart';
+import 'package:cyrs_1/pages/shoppingCard.dart';
 import 'package:cyrs_1/user.dart';
 import 'package:fluid_bottom_nav_bar/fluid_bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
@@ -18,9 +18,9 @@ class Catalog extends StatefulWidget {
 
   @override
   State<Catalog> createState() => _CatalogState();
-
-
 }
+
+
 
 class _CatalogState extends State<Catalog> {
   List<dynamic> titlesArray = ["Каталог", "Корзина", "Избранное", "Профиль"];
