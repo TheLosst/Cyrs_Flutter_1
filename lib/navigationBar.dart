@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/services.dart';
 import 'package:cyrs_1/pages/favourits.dart';
-import 'package:cyrs_1/registartation%20&%20login/main.dart';
+import 'package:cyrs_1/registartation%20&%20login/login.dart';
 import 'package:cyrs_1/pages/profile.dart';
 import 'package:cyrs_1/registartation%20&%20login/register.dart';
 import 'package:cyrs_1/pages/shopList.dart';
