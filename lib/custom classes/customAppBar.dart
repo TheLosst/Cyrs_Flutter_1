@@ -23,13 +23,6 @@ class MyUltraCoolAppBar extends AppBar {
                         searchTextEditingController: controller,
                         horizontalPadding: 5)
                         ),
-          SizedBox(height: double.infinity, width: double.infinity,
-          child: Container(
-            decoration: BoxDecoration(
-              color: Colors.transparent,
-            ),
-          ),)
-                        
         ],
     );
 }

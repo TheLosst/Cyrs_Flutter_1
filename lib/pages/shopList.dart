@@ -31,12 +31,12 @@ class _ShopListState extends State<ShopList> {
     super.initState();
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
         overlays: [SystemUiOverlay.bottom]);
-    Future<DiskProp> test = createDiskProp();
+    var test = createDiskProp();
     print(test);
   }
 
-  Future<DiskProp> createDiskProp() async {
-    DiskProp test = await fetchDiskDescr();
+  Future<List<DiskProp>?> createDiskProp() async {
+    List<DiskProp>? test = await fetchDiskDescr();
     return test;
   }
 
@@ -44,11 +44,12 @@ class _ShopListState extends State<ShopList> {
   //   return http.get(Uri.parse('$connIp/DiskProp.json'));
   // }
 
-  Future<DiskProp> fetchDiskDescr() async {
+  Future<List<DiskProp>?> fetchDiskDescr() async {
     final response = await http.get(Uri.parse('$connIp/DiskProp.json'));
     if (response.statusCode == 200) {
-      print(jsonDecode(response.body));
-      return DiskProp.fromJson(jsonDecode(response.body));
+      Iterable buff = json.decode(response.body);
+      List<DiskProp> shopList = List<DiskProp>.from(buff.map((model)=> DiskProp.fromJson(model)));
+      return shopList;
     } else {
       throw Exception('Ойбаный Ёобаный ОБЭМЭ!');
     }
@@ -58,17 +59,15 @@ class _ShopListState extends State<ShopList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyUltraCoolAppBar(controller, "Каталог", Colors.black),
-      body: Padding(
-        padding: EdgeInsets.only(top:1, bottom: 12),
-        child: FutureBuilder<DiskProp>(
+      body: FutureBuilder<List<DiskProp>?>(
             future: fetchDiskDescr(),
-            builder: (BuildContext context, AsyncSnapshot<DiskProp> snapshot) {
+            builder: (BuildContext context, AsyncSnapshot<List<DiskProp>?> snapshot) {
               if (snapshot.connectionState == ConnectionState.done) {
                 return ListView.separated(
-                  itemCount: 2,
+                  itemCount: snapshot.data?.length as int,
                   itemBuilder: (BuildContext context, int index) {
-                    return DisplayCatalogItem(snapshot.data?.id, snapshot.data?.name, snapshot.data?.cost);
-                  },
+                    return DisplayCatalogItem(snapshot.data?[index].id, snapshot.data?[index].name, snapshot.data?[index].cost);
+                    },
                   separatorBuilder: (BuildContext context, int index) =>
                       const Divider(
                     height: 3,
@@ -86,8 +85,7 @@ class _ShopListState extends State<ShopList> {
                 );
               }
             }),
-      ),
-    );
+      );
   }
 }
 
