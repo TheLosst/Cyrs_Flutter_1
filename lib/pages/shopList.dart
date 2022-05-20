@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:animation_search_bar/animation_search_bar.dart';
 import 'package:cyrs_1/custom%20classes/catalogListDisk.dart';
+import 'package:cyrs_1/custom%20classes/customAppBar.dart';
 import 'package:cyrs_1/custom%20classes/iconsCustom.dart';
 import 'package:cyrs_1/registartation%20&%20login/login.dart';
 import 'package:cyrs_1/registartation%20&%20login/register.dart';
@@ -56,26 +57,7 @@ class _ShopListState extends State<ShopList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-          preferredSize: const Size(double.infinity, 65),
-          child: SafeArea(
-              child: Container(
-                  decoration: const BoxDecoration(
-                      color: Color.fromRGBO(144, 205, 249, 1),
-                      boxShadow: [
-                        BoxShadow(
-                            color: Colors.black26,
-                            blurRadius: 5,
-                            spreadRadius: 0,
-                            offset: Offset(0, 5))
-                      ]),
-                  child: Center(
-                      child: AnimationSearchBar(
-                          isBackButtonVisible: false,
-                          centerTitle: 'Каталог',
-                          onChanged: (text) => debugPrint(text),
-                          searchTextEditingController: controller,
-                          horizontalPadding: 5))))),
+      appBar: MyUltraCoolAppBar(controller, "Каталог", Colors.black),
       body: Padding(
         padding: EdgeInsets.only(top: 0, bottom: 12),
         child: FutureBuilder<DiskProp>(

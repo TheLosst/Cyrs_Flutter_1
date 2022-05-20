@@ -30,10 +30,10 @@ class _CatalogState extends State<Catalog> {
 
 
   final List<Widget> _children = [
-    ShopList(),
-    ShoppingCard(),
-    Favourites(),
-    Profile()
+     ShopList(),
+     ShoppingCard(),
+     Favourites(),
+     Profile()
   ];
 
   void onTapped(int index) {
@@ -94,18 +94,4 @@ class _CatalogState extends State<Catalog> {
     );
   }
 }
-//   items:  <BottomNavigationBarItem>[
-//     BottomNavigationBarItem(
-//         icon: Icon(Icons.home), label: 'Каталог'),
-//     BottomNavigationBarItem(
-//         icon: Icon(Icons.shopping_cart), label: 'Корзина'),
-//     BottomNavigationBarItem(
-//         icon: Icon(Icons.favorite_border), label: 'Избранное'),
-//     BottomNavigationBarItem(
-//         icon: Icon(Icons.account_circle_outlined), label: 'Профиль')
-//   ],
-//   currentIndex: _selectedIndex,
-//   selectedItemColor: Colors.blue,
-//   unselectedItemColor: Colors.grey,
-//   onTap: onTapped,
-// ),
+

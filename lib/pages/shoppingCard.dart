@@ -1,4 +1,5 @@
 import 'package:animation_search_bar/animation_search_bar.dart';
+import 'package:cyrs_1/custom%20classes/customAppBar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -28,26 +29,7 @@ class _ShoppingCardState extends State<ShoppingCard> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      appBar: PreferredSize(
-          preferredSize: const Size(double.infinity, 65),
-          child: SafeArea(
-              child: Container(
-                  decoration: const BoxDecoration(
-                      color: Color.fromRGBO(144, 205, 249, 1),
-                      boxShadow: [
-                        BoxShadow(
-                            color: Colors.black26,
-                            blurRadius: 5,
-                            spreadRadius: 0,
-                            offset: Offset(0, 5))
-                      ]),
-                  child: Center(
-                      child: AnimationSearchBar(
-                          isBackButtonVisible: false,
-                          centerTitle: 'Корзина',
-                          onChanged: (text) => debugPrint(text),
-                          searchTextEditingController: controller,
-                          horizontalPadding: 5))))),
+      appBar: MyUltraCoolAppBar(controller,"Корзина", Colors.black),
       body: Padding(
         padding: EdgeInsets.only(top: 0, bottom: 12),
         child: ListView.separated(
