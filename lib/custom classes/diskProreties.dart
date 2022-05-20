@@ -5,20 +5,20 @@ import 'package:flutter/cupertino.dart';
 
 class DiskProp
 {
-  DiskProp({required this.id, required this.name, required this.description, required this.cost, required this.type});
+  DiskProp({required this.id, required this.name, required this.description, required this.cost});
   late String id;
   late String name;
   late String description;
   late int cost;
-  late String type;
+  // late String type;
 
   factory DiskProp.fromJson(Map<String, dynamic> json) {
     final id = json['id'] as String;
     final name = json['name'] as String;
     final description = json['description'] as String;
     final cost = json['cost'] as int;
-    final type = json['HardDisk'] as String;
-    return DiskProp(type: type,id: id, name: name, description: description, cost: cost);
+    //final type = json['HardDisk'] as String;
+    return DiskProp(/*type: type,*/id: id, name: name, description: description, cost: cost);
   }
 
   void setID(String data){
@@ -37,8 +37,8 @@ class DiskProp
     cost = data;
   }
 
-  void setType(String data){
-    type = data;
-  }
+  // void setType(String data){
+  //   type = data;
+  // }
 
 }

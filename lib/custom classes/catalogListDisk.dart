@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Widget DisplayCatalogItem(String? name){
+Widget DisplayCatalogItem(String? id, String? name, int? cost){
       return Container(
         width: 300,
         height: 154,
@@ -51,7 +51,7 @@ Widget DisplayCatalogItem(String? name){
               child: SizedBox(
                   width: 200,
                   child: Text(
-                    "6666" + " руб.",
+                    "$cost" " руб.",
                     style: TextStyle(fontWeight: FontWeight.bold),
                   )),
             ),

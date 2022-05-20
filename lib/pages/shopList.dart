@@ -59,7 +59,7 @@ class _ShopListState extends State<ShopList> {
     return Scaffold(
       appBar: MyUltraCoolAppBar(controller, "Каталог", Colors.black),
       body: Padding(
-        padding: EdgeInsets.only(top: 0, bottom: 12),
+        padding: EdgeInsets.only(top:1, bottom: 12),
         child: FutureBuilder<DiskProp>(
             future: fetchDiskDescr(),
             builder: (BuildContext context, AsyncSnapshot<DiskProp> snapshot) {
@@ -67,7 +67,7 @@ class _ShopListState extends State<ShopList> {
                 return ListView.separated(
                   itemCount: 2,
                   itemBuilder: (BuildContext context, int index) {
-                    return DisplayCatalogItem(snapshot.data?.name);
+                    return DisplayCatalogItem(snapshot.data?.id, snapshot.data?.name, snapshot.data?.cost);
                   },
                   separatorBuilder: (BuildContext context, int index) =>
                       const Divider(

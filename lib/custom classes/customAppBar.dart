@@ -13,7 +13,6 @@ class MyUltraCoolAppBar extends AppBar {
             "this is app bar",
             style: TextStyle(color: Colors.black),
         ),
-        elevation: 0.0,
         automaticallyImplyLeading: false,
         actions: <Widget>[
                   Center(
