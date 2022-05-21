@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:animation_search_bar/animation_search_bar.dart';
+import 'package:cyrs_1/custom%20classes/customAppBar.dart';
 import 'package:cyrs_1/custom%20classes/iconsCustom.dart';
 import 'package:cyrs_1/registartation%20&%20login/login.dart';
 import 'package:cyrs_1/registartation%20&%20login/register.dart';
@@ -36,27 +37,7 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-          preferredSize: const Size(double.infinity, 65),
-          child: SafeArea(
-              child: Container(
-                  decoration: const BoxDecoration(
-                      color: Color.fromRGBO(144, 205, 249, 1),
-                      boxShadow: [
-                        BoxShadow(
-                            color: Colors.black26,
-                            blurRadius: 5,
-                            spreadRadius: 0,
-                            offset: Offset(0, 5))
-                      ]),
-                  child: Center(
-                      child: AnimationSearchBar(
-                          searchIconColor: Color.fromRGBO(144, 205, 249, 1),
-                          isBackButtonVisible: false,
-                          centerTitle: 'Профиль',
-                          onChanged: (text) => debugPrint(text),
-                          searchTextEditingController: controller,
-                          horizontalPadding: 5))))),
+      appBar: MyUltraCoolAppBar(controller, 'Профиль', const Color.fromRGBO(144, 205, 249, 1), false),
       body: Column(
         children: [
           Center(

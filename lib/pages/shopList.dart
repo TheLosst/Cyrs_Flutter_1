@@ -31,12 +31,12 @@ class _ShopListState extends State<ShopList> {
     super.initState();
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
         overlays: [SystemUiOverlay.bottom]);
-    var test = createDiskProp();
-    print(test);
   }
 
-  Future<List<DiskProp>?> createDiskProp() async {
-    List<DiskProp>? test = await fetchDiskDescr();
+  Future<List<DiskProp>> createDiskProp() async {
+    //List<DiskProp> test = await fetchDiskDescr();
+    test = await fetchDiskDescr();
+    print(test[0].description);
     return test;
   }
 
@@ -44,12 +44,12 @@ class _ShopListState extends State<ShopList> {
   //   return http.get(Uri.parse('$connIp/DiskProp.json'));
   // }
 
-  Future<List<DiskProp>?> fetchDiskDescr() async {
+  Future<List<DiskProp>> fetchDiskDescr() async {
     final response = await http.get(Uri.parse('$connIp/DiskProp.json'));
     if (response.statusCode == 200) {
-      Iterable buff = json.decode(response.body);
-      List<DiskProp> shopList = List<DiskProp>.from(buff.map((model)=> DiskProp.fromJson(model)));
-      return shopList;
+      var buff = json.decode(response.body);
+      print(buff);
+      return buff.map<DiskProp>(DiskProp.fromJson).toList();
     } else {
       throw Exception('Ойбаный Ёобаный ОБЭМЭ!');
     }
@@ -58,35 +58,33 @@ class _ShopListState extends State<ShopList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyUltraCoolAppBar(controller, "Каталог", Colors.black),
+      appBar: MyUltraCoolAppBar(controller, "Каталог", Colors.black, false),
       body: FutureBuilder<List<DiskProp>?>(
-            future: fetchDiskDescr(),
-            builder: (BuildContext context, AsyncSnapshot<List<DiskProp>?> snapshot) {
-              if (snapshot.connectionState == ConnectionState.done) {
-                return ListView.separated(
-                  itemCount: snapshot.data?.length as int,
-                  itemBuilder: (BuildContext context, int index) {
-                    return DisplayCatalogItem(snapshot.data?[index].id, snapshot.data?[index].name, snapshot.data?[index].cost);
-                    },
-                  separatorBuilder: (BuildContext context, int index) =>
-                      const Divider(
-                    height: 3,
-                  ),
-                );
-              } else {
-                return Center(child:
-                CollectionSlideTransition(
-                  children: const <Widget>[
-                    Icon(Icons.accessible),
-                    Icon(Icons.arrow_right_alt),
-                    Icon(Icons.accessible_forward_sharp),
-                  ],
+          future: createDiskProp(),
+          builder: (BuildContext context, AsyncSnapshot<List<DiskProp>?> snapshot) {
+            if (snapshot.connectionState == ConnectionState.done) {
+              return ListView.separated(
+                itemCount: snapshot.data?.length as int,
+                itemBuilder: (BuildContext context, int index) {
+                  return DisplayCatalogItem(snapshot.data?[index].id, snapshot.data?[index].name, snapshot.data?[index].cost, snapshot.data?[index].urlToImg);
+                },
+                separatorBuilder: (BuildContext context, int index) =>
+                const Divider(
+                  height: 3,
                 ),
-                );
-              }
-            }),
-      );
+              );
+            } else {
+              return Center(child:
+              CollectionSlideTransition(
+                children: const <Widget>[
+                  Icon(Icons.accessible),
+                  Icon(Icons.arrow_right_alt),
+                  Icon(Icons.accessible_forward_sharp),
+                ],
+              ),
+              );
+            }
+          }),
+    );
   }
 }
-
-//

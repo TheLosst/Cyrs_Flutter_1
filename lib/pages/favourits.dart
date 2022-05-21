@@ -26,7 +26,7 @@ class _FavouritesState extends State<Favourites> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyUltraCoolAppBar(controller,"Избранное", Colors.black),
+      appBar: MyUltraCoolAppBar(controller,"Избранное", Colors.black, true),
       body: Padding(
         padding: EdgeInsets.only(top: 0, bottom: 12),
         child: ListView.separated(

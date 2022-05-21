@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-Widget DisplayCatalogItem(String? id, String? name, int? cost){
+Widget DisplayCatalogItem(int? id, String? name, int? cost, String? imgPath){
       return Container(
         width: 300,
         height: 154,
         margin:
-        const EdgeInsets.only(bottom: 0, left: 0, right: 0, top: 0),
+        const EdgeInsets.only(bottom: 3, left: 0, right: 0, top: 5),
         decoration: BoxDecoration(
             color: const Color.fromRGBO(144, 205, 249, 1),
             border: Border.all(
@@ -31,7 +31,7 @@ Widget DisplayCatalogItem(String? id, String? name, int? cost){
                 child: SizedBox(
                   width: 120,
                   height: 85,
-                  child: Image.asset("assets/images/hdd_template.png"),
+                  child: Image.network(imgPath!, scale: 3),
                 ),
               ),
             ),

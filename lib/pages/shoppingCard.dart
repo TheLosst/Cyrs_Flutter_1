@@ -29,7 +29,7 @@ class _ShoppingCardState extends State<ShoppingCard> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      appBar: MyUltraCoolAppBar(controller,"Корзина", Colors.black),
+      appBar: MyUltraCoolAppBar(controller,"Корзина", Colors.black, false),
       body: Padding(
         padding: EdgeInsets.only(top: 0, bottom: 12),
         child: ListView.separated(
