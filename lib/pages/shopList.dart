@@ -36,7 +36,6 @@ class _ShopListState extends State<ShopList> {
   Future<List<DiskProp>> createDiskProp() async {
     //List<DiskProp> test = await fetchDiskDescr();
     test = await fetchDiskDescr();
-    print(test[0].description);
     return test;
   }
 
@@ -61,27 +60,24 @@ class _ShopListState extends State<ShopList> {
       appBar: MyUltraCoolAppBar(controller, "Каталог", Colors.black, false),
       body: FutureBuilder<List<DiskProp>?>(
           future: createDiskProp(),
-          builder: (BuildContext context, AsyncSnapshot<List<DiskProp>?> snapshot) {
+          builder:
+              (BuildContext context, AsyncSnapshot<List<DiskProp>?> snapshot) {
             if (snapshot.connectionState == ConnectionState.done) {
-              return ListView.separated(
-                itemCount: snapshot.data?.length as int,
-                itemBuilder: (BuildContext context, int index) {
-                  return DisplayCatalogItem(snapshot.data?[index].id, snapshot.data?[index].name, snapshot.data?[index].cost, snapshot.data?[index].urlToImg);
-                },
-                separatorBuilder: (BuildContext context, int index) =>
-                const Divider(
-                  height: 3,
-                ),
-              );
+              return ListView.builder(
+                  itemCount: snapshot.data?.length as int,
+                  itemBuilder: (BuildContext context, int index) =>
+                      DisplayCatalogItem(
+                          snapshot.data?[index],
+                          context));
             } else {
-              return Center(child:
-              CollectionSlideTransition(
-                children: const <Widget>[
-                  Icon(Icons.accessible),
-                  Icon(Icons.arrow_right_alt),
-                  Icon(Icons.accessible_forward_sharp),
-                ],
-              ),
+              return Center(
+                child: CollectionSlideTransition(
+                  children: const <Widget>[
+                    Icon(Icons.accessible),
+                    Icon(Icons.arrow_right_alt),
+                    Icon(Icons.accessible_forward_sharp),
+                  ],
+                ),
               );
             }
           }),
