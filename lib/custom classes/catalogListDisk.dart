@@ -102,7 +102,7 @@ Widget DisplayCatalogItem(DiskProp? disk, context) {
                       backgroundColor: MaterialStateProperty.all<Color>(
                           const Color.fromRGBO(195, 0, 70, 1))),
                   onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => DiskPropPage(disk: disk,),
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => DiskPropPage(disk: disk),
                     ));
                   },
                   child: const Text("Подробнее"),

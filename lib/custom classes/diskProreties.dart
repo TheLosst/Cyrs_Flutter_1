@@ -16,7 +16,9 @@ class DiskProp
   late String size;
   late int cost;
   late String urlToImg;
-
+  Map<String, String> properties = {
+  "formfactor" : "formfactor"
+  };
 
 
   static DiskProp fromJson(json) =>
