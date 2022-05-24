@@ -33,7 +33,7 @@ class _DiskPropPageState extends State<DiskPropPage> {
             children: [
               Center(
                 child: Padding(
-                  padding: const EdgeInsets.only(bottom: 600),
+                  padding: const EdgeInsets.only(bottom: 670),
                   child: Text(
                     widget.disk?.name as String,
                     style: TextStyle(
@@ -59,22 +59,32 @@ class _DiskPropPageState extends State<DiskPropPage> {
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 70, left: 120),
-                child: diskInfoView(widget?.disk),
+                child: diskInfoView(widget.disk),
               ),
-              DropdownButton(
-                onChanged: (String? newValue) {
-                  setState(() {
-                    dropdownvalue = newValue!;
-                  });
-                },
-                value: dropdownvalue,
-                icon: const Icon(Icons.keyboard_arrow_down),
-                items: shopList.map((String items) {
-                  return DropdownMenuItem(
-                    value: items,
-                    child: Text(items),
-                  );
-                }).toList(),
+              Padding(
+                padding: const EdgeInsets.only(left: 60, top: 210),
+                child: Container(
+                  decoration: const BoxDecoration(color: Color.fromRGBO(144, 205, 249, 0.5),
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                  ),
+
+                  child: DropdownButton(
+                    dropdownColor: Color.fromRGBO(144, 205, 249, 1),
+                    onChanged: (String? newValue) {
+                      setState(() {
+                        dropdownvalue = newValue!;
+                      });
+                    },
+                    value: dropdownvalue,
+                    icon: const Icon(Icons.keyboard_arrow_down),
+                    items: shopList.map((String items) {
+                      return DropdownMenuItem(
+                        value: items,
+                        child: Text(items,),
+                      );
+                    }).toList(),
+                  ),
+                ),
               )
             ],
           ),
