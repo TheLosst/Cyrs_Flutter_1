@@ -10,7 +10,7 @@ List<DiskProp> test = [];
 bool isAuthOn = true;
 
 var shopList = ["beri.shop", " mobicomshop.ru", "comparema", "sly.ru"];
-
+List<bool> like = [false, false, false, false, false];
 
 String connIp = "http://192.168.0.109:80";
 

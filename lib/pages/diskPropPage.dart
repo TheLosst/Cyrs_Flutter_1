@@ -1,3 +1,4 @@
+import 'package:cyrs_1/buttons/amazingToCardButton.dart';
 import 'package:cyrs_1/custom%20classes/customAppBar.dart';
 import 'package:cyrs_1/custom%20classes/diskInfoWidget.dart';
 import 'package:cyrs_1/custom%20classes/diskProreties.dart';
@@ -123,18 +124,7 @@ class _DiskPropPageState extends State<DiskPropPage> {
               ),
             ),
             Padding(padding: EdgeInsets.only(left: 240, top: 250),
-            child: ElevatedButton(
-              style: ButtonStyle(
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(50.0)),
-                  ),
-                  backgroundColor: MaterialStateProperty.all<Color>(
-                      const Color.fromRGBO(195, 0, 70, 1))),
-              onPressed: () {},
-                //TODO: Добавить пост запрос на добавление ид в бд при нажатии на кнопку
-              child: const Text("В корзину"),
-            ))
+            child: AmazingShopButton())
           ],
         ),
       ),
