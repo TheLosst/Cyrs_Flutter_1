@@ -124,7 +124,7 @@ class _DiskPropPageState extends State<DiskPropPage> {
               ),
             ),
             Padding(padding: EdgeInsets.only(left: 240, top: 250),
-            child: AmazingShopButton())
+            child: AmazingShopButton(id: (widget.disk?.id).toString(),))
           ],
         ),
       ),

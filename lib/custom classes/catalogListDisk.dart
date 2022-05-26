@@ -60,7 +60,9 @@ Widget DisplayCatalogItem(DiskProp? disk, context) {
           ),
           Padding(
               padding: EdgeInsets.only(top: 110, left: 245),
-              child: AmazingLikeButton( id: ((disk?.id).toString()),)),
+              child: AmazingLikeButton(
+                id: ((disk?.id).toString()),
+              )),
           Padding(
             padding: EdgeInsets.only(top: 70, left: 275),
             child: Container(
@@ -89,17 +91,18 @@ Widget DisplayCatalogItem(DiskProp? disk, context) {
                 )),
           ),
           Padding(
-            padding: EdgeInsets.only(top: 105, left: 280),
+            padding: EdgeInsets.only(top: 105, left: 275),
             child: Container(
-                width: 100,
-                height: 30,
-                decoration: BoxDecoration(
+              width: 110,
+              height: 30,
+              decoration: BoxDecoration(
+                  color: const Color.fromRGBO(195, 0, 70, 1),
+                  border: Border.all(
                     color: const Color.fromRGBO(195, 0, 70, 1),
-                    border: Border.all(
-                      color: const Color.fromRGBO(195, 0, 70, 1),
-                    ),
-                    borderRadius: const BorderRadius.all(Radius.circular(50))),
-                child: AmazingShopButton()),
+                  ),
+                  borderRadius: const BorderRadius.all(Radius.circular(50))),
+              child: AmazingShopButton(id: (disk?.id).toString()),
+            ),
           ),
         ],
       ),
