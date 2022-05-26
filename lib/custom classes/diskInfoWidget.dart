@@ -45,7 +45,7 @@ Widget diskInfoView(DiskProp? disk) {
                     ),
                   ),
                   Text(
-                    "${options[index]}",
+                    options[index],
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Color.fromRGBO(195, 0, 70, 1),
@@ -65,30 +65,4 @@ Widget diskInfoView(DiskProp? disk) {
         }),
   );
 
-  // child: Center(
-  //   child: Column(
-  //     children: [
-  //       Padding(
-  //         padding: EdgeInsets.only(bottom: 0),
-  //         child: Row(
-  //           children: [
-  //           Text("Емкость: "),
-  //           Text("${disk?.capacity}",style: TextStyle(color: Colors.red),)
-  //           ],
-  //         ),
-  //         // child: Text("Емкость: " "${disk?.capacity}",textAlign: TextAlign.left,),
-  //       ),
-  //       Padding(
-  //         padding: EdgeInsets.all(0),
-  //         child: Text("Форм-фактор: " "${disk?.formfactor}",textAlign: TextAlign.left),
-  //       ),
-  //       Padding(
-  //         padding: EdgeInsets.all(0),
-  //         child: Text("Скорость : " "${disk?.speed}",textAlign: TextAlign.left),
-  //       ),
-  //     ],
-  //   ),
-  //
-  //
-  // ),
 }

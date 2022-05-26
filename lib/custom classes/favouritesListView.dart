@@ -1,21 +1,12 @@
-import 'package:cyrs_1/buttons/amazingLikeButton.dart';
 import 'package:cyrs_1/buttons/amazingRemoveFromFavourtitesButton.dart';
-import 'package:cyrs_1/buttons/amazingToCardButton.dart';
-import 'package:cyrs_1/custom%20classes/diskProreties.dart';
-import 'package:cyrs_1/pages/diskPropPage.dart';
-import 'package:cyrs_1/pages/favourits.dart';
+
 import 'package:flutter/material.dart';
-import 'package:path/path.dart' as Path;
 
 import '../globals/globals.dart';
 
-
-
-
 Widget FavouritesCatalogView(context, int index, rebuild) {
   print(index);
-  if(like[index])
-  {
+  if (like[index]) {
     return Card(
       child: Container(
         width: 300,
@@ -30,7 +21,7 @@ Widget FavouritesCatalogView(context, int index, rebuild) {
         child: Stack(
           children: <Widget>[
             Padding(
-              padding: EdgeInsets.only(top: 25, left: 10),
+              padding: const EdgeInsets.only(top: 25, left: 10),
               child: Container(
                 width: 120,
                 height: 85,
@@ -50,7 +41,7 @@ Widget FavouritesCatalogView(context, int index, rebuild) {
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(left: 150, top: 25),
+              padding: const EdgeInsets.only(left: 150, top: 25),
               child: SizedBox(
                   width: 200,
                   child: Text(
@@ -60,16 +51,16 @@ Widget FavouritesCatalogView(context, int index, rebuild) {
                   )),
             ),
             Padding(
-              padding: EdgeInsets.only(left: 150, top: 85),
+              padding: const EdgeInsets.only(left: 150, top: 85),
               child: SizedBox(
                   width: 200,
                   child: Text(
                     "${test[index].cost}" + " руб.",
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    style: const TextStyle(fontWeight: FontWeight.bold),
                   )),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 110, left: 245),
+              padding: const EdgeInsets.only(top: 110, left: 245),
               child: Container(
                   width: 24,
                   height: 24,
@@ -79,10 +70,11 @@ Widget FavouritesCatalogView(context, int index, rebuild) {
                         color: const Color.fromRGBO(255, 255, 255, 1),
                       ),
                       borderRadius: const BorderRadius.all(Radius.circular(5))),
-                  child: AmazingRemoveFromFavourtitesButton(context, index, rebuild)),
+                  child: AmazingRemoveFromFavourtitesButton(
+                      context, index, rebuild)),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 20, left: 365),
+              padding: const EdgeInsets.only(top: 20, left: 365),
               child: Container(
                   width: 24,
                   height: 24,
@@ -136,8 +128,7 @@ Widget FavouritesCatalogView(context, int index, rebuild) {
         ),
       ),
     );
-  }
-  else {
+  } else {
     return const Card();
   }
 }

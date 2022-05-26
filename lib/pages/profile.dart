@@ -1,17 +1,8 @@
-import 'dart:convert';
 
-import 'package:animation_search_bar/animation_search_bar.dart';
 import 'package:cyrs_1/custom%20classes/customAppBar.dart';
-import 'package:cyrs_1/custom%20classes/iconsCustom.dart';
 import 'package:cyrs_1/registartation%20&%20login/login.dart';
-import 'package:cyrs_1/registartation%20&%20login/register.dart';
-import 'package:cyrs_1/custom%20classes/user.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:http/http.dart' as http;
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:crypto/crypto.dart';
-import '../globals/globals.dart' as globals;
 import '../globals/globals.dart';
 
 class Profile extends StatefulWidget {
@@ -42,14 +33,13 @@ class _ProfileState extends State<Profile> {
         children: [
           Center(
             child: Padding(
-              padding: EdgeInsets.only(top: 12, left: 18, right: 18),
+              padding: const EdgeInsets.only(top: 12, left: 18, right: 18),
               child: Stack(
                 children: [
                   Image.asset("assets/images/profileBackGround.png"),
                   Padding(
                     padding: EdgeInsets.all(80),
                     child: Container(
-                      child: Image.asset("assets/images/profileTemplate.png"),
                       decoration: BoxDecoration(
                           color: const Color.fromRGBO(144, 205, 249, 1),
                           border: Border.all(
@@ -57,6 +47,7 @@ class _ProfileState extends State<Profile> {
                           ),
                           borderRadius:
                               const BorderRadius.all(Radius.circular(500))),
+                      child: Image.asset("assets/images/profileTemplate.png"),
                     ),
                   ),
                   Padding(

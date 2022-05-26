@@ -1,6 +1,4 @@
-import 'package:animation_search_bar/animation_search_bar.dart';
 import 'package:cyrs_1/custom%20classes/favouritesListView.dart';
-import 'package:cyrs_1/pages/favourits.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -38,7 +36,7 @@ class _FavouritesState extends State<Favourites> {
     return Scaffold(
       appBar: MyUltraCoolAppBar(controller,"Избранное", Colors.black, true),
       body: Padding(
-        padding: EdgeInsets.only(top: 0, bottom: 0),
+        padding: const EdgeInsets.only(top: 0, bottom: 0),
         child: ListView.builder(itemBuilder: (BuildContext context, int index) => FavouritesCatalogView(context, index, rebuildAllChildren), itemCount: like.length,),
       ),
     );

@@ -48,6 +48,8 @@ dependencies:
   dhk_counter: ^0.0.2
   http: ^0.13.4
   progress_indicators: ^1.0.0
+  fading_image_button: ^0.10.0+0
+  transparent_image_button: ^0.2.0
 
 dev_dependencies:
   flutter_test:
@@ -59,7 +61,6 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
-  cupertino_icons: ^1.0.2
   flutter_markdown: ^0.6.9+1
   url_launcher: ^6.0.20
   flutter_bloc: ^7.3.3

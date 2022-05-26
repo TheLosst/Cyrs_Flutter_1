@@ -3,7 +3,7 @@ import 'package:cyrs_1/buttons/amazingToCardButton.dart';
 import 'package:cyrs_1/custom%20classes/diskProreties.dart';
 import 'package:cyrs_1/pages/diskPropPage.dart';
 import 'package:flutter/material.dart';
-import 'package:path/path.dart' as Path;
+
 
 Widget DisplayCatalogItem(DiskProp? disk, context) {
   return Card(

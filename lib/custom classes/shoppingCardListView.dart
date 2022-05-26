@@ -1,11 +1,5 @@
 import 'package:cyrs_1/buttons/amazingLikeButton.dart';
-import 'package:cyrs_1/buttons/amazingRemoveFromFavourtitesButton.dart';
-import 'package:cyrs_1/buttons/amazingToCardButton.dart';
-import 'package:cyrs_1/custom%20classes/diskProreties.dart';
-import 'package:cyrs_1/pages/diskPropPage.dart';
-import 'package:cyrs_1/pages/favourits.dart';
 import 'package:flutter/material.dart';
-import 'package:path/path.dart' as Path;
 
 import '../globals/globals.dart';
 
@@ -45,7 +39,7 @@ Widget ShoppingCardListView(context, int index) {
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(left: 150, top: 25),
+            padding: const EdgeInsets.only(left: 150, top: 25),
             child: SizedBox(
                 width: 200,
                 child: Text(
@@ -55,16 +49,16 @@ Widget ShoppingCardListView(context, int index) {
                 )),
           ),
           Padding(
-            padding: EdgeInsets.only(left: 150, top: 85),
+            padding: const EdgeInsets.only(left: 150, top: 85),
             child: SizedBox(
                 width: 200,
                 child: Text(
                   "${test[index].cost} руб.",
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  style: const TextStyle(fontWeight: FontWeight.bold),
                 )),
           ),
           Padding(
-            padding: EdgeInsets.only(top: 110, left: 255),
+            padding: const EdgeInsets.only(top: 110, left: 255),
             child: Container(
                 width: 24,
                 height: 24,
@@ -78,7 +72,7 @@ Widget ShoppingCardListView(context, int index) {
                   child: Transform.scale(
                     scale: 3,
                     child: IconButton(
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.highlight_remove,
                         size: 6,
                       ),
@@ -90,7 +84,7 @@ Widget ShoppingCardListView(context, int index) {
                 )),
           ),
           Padding(
-            padding: EdgeInsets.only(top: 110, left: 225),
+            padding: const EdgeInsets.only(top: 110, left: 225),
             child: Container(
               width: 24,
               height: 24,
@@ -103,26 +97,26 @@ Widget ShoppingCardListView(context, int index) {
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(top: 110, left: 225),
+            padding: const EdgeInsets.only(top: 110, left: 225),
             child: AmazingLikeButton(id: (index+1).toString())
           ),
           Padding(
-            padding: EdgeInsets.only(top: 110, left: 285),
+            padding: const EdgeInsets.only(top: 110, left: 285),
             child: Container(
               width: 90,
               height: 24,
-              color: Color.fromRGBO(255, 255, 255, 1),
+              color: const Color.fromRGBO(255, 255, 255, 1),
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(top: 110, left: 285),
+            padding: const EdgeInsets.only(top: 110, left: 285),
             child: SizedBox(
               width: 24,
               height: 24,
               child: Transform.scale(
                 scale: 3,
                 child: IconButton(
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.remove_circle_outline,
                     size: 6,
                     color: Colors.red,
@@ -134,14 +128,14 @@ Widget ShoppingCardListView(context, int index) {
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(top: 110, left: 350),
+            padding: const EdgeInsets.only(top: 110, left: 350),
             child: SizedBox(
               width: 24,
               height: 24,
               child: Transform.scale(
                 scale: 3,
                 child: IconButton(
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.add_circle_outline,
                     size: 6,
                     color: Colors.red,
@@ -153,7 +147,7 @@ Widget ShoppingCardListView(context, int index) {
               ),
             ),
           ),
-          Padding(
+          const Padding(
             padding: EdgeInsets.only(left: 327, top: 113),
             child: Text("lol2"),
           )

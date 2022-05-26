@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:cyrs_1/globals/globals.dart';
-import 'package:cyrs_1/custom%20classes/iconsCustom.dart';
 import 'package:cyrs_1/registartation%20&%20login/login.dart';
 import 'package:cyrs_1/custom%20classes/user.dart';
 import 'package:flutter/material.dart';
@@ -240,13 +239,3 @@ class _RegistrarionPageState extends State<RegistrarionPage> {
   }
 }
 
-// floatingActionButton: FloatingActionButton(
-//   onPressed: _incrementCounter,
-//   tooltip: 'Increment',
-//   child: const Icon(Icons.add),
-// ), // This trailing comma makes auto-formatting nicer for build methods.
-//   ),
-//   );onPressed: (){
-//   User user = User(phone: "phone", username: "username", password: "password");
-//   register(user);
-// }

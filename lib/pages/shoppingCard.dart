@@ -1,13 +1,11 @@
-import 'package:animation_search_bar/animation_search_bar.dart';
+
+import 'package:cyrs_1/buttons/amazingBuyButton.dart';
 import 'package:cyrs_1/custom%20classes/customAppBar.dart';
 import 'package:cyrs_1/custom%20classes/shoppingCardListView.dart';
 import 'package:cyrs_1/globals/globals.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:http/http.dart' as http;
-import 'package:html/parser.dart' as parser;
-import 'package:html/dom.dart' as dom;
 
 class ShoppingCard extends StatefulWidget {
   const ShoppingCard({Key? key}) : super(key: key);
@@ -33,8 +31,16 @@ class _ShoppingCardState extends State<ShoppingCard> {
     return Scaffold(
       appBar: MyUltraCoolAppBar(controller,"Корзина", Colors.black, false),
       body: Padding(
-        padding: EdgeInsets.only(top: 0, bottom: 12),
-        child: ListView.builder(itemBuilder: (BuildContext context, int index) => ShoppingCardListView(context, index), itemCount: shoppingCard.length,),
+        padding: const EdgeInsets.only(top: 0, bottom: 12),
+        child: Stack(
+          children: [
+            ListView.builder(itemBuilder: (BuildContext context, int index) => ShoppingCardListView(context, index), itemCount: shoppingCard.length,),
+            const Center(child: Padding(
+              padding: EdgeInsets.only(top: 480),
+              child: AmazingBuyButton(id: 'none',),
+            ))
+          ],
+        ),
       ),
     );
   }

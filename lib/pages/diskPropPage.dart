@@ -89,7 +89,6 @@ class _DiskPropPageState extends State<DiskPropPage> {
                           cost = (widget.disk?.cost as int) + mod;
                           break;
                         default:
-                          var mod = 1;
                           break;
                       }
                     });
@@ -108,12 +107,12 @@ class _DiskPropPageState extends State<DiskPropPage> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(left: 240, top: 222),
+              padding: const EdgeInsets.only(left: 240, top: 222),
               child: Text(
                 "Цена:    $cost руб.",
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 18,
-                  shadows: const <Shadow>[
+                  shadows: <Shadow>[
                     Shadow(
                       offset: Offset(2.0, 2.0),
                       blurRadius: 60.0,
@@ -123,7 +122,7 @@ class _DiskPropPageState extends State<DiskPropPage> {
                 ),
               ),
             ),
-            Padding(padding: EdgeInsets.only(left: 240, top: 250),
+            Padding(padding: const EdgeInsets.only(left: 240, top: 250),
             child: AmazingShopButton(id: (widget.disk?.id).toString(),))
           ],
         ),
