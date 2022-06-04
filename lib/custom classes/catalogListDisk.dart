@@ -5,7 +5,7 @@ import 'package:cyrs_1/pages/diskPropPage.dart';
 import 'package:flutter/material.dart';
 
 
-Widget DisplayCatalogItem(DiskProp? disk, context) {
+Widget displayCatalogItem(DiskProp? disk, context) {
   return Card(
     child: Container(
       width: 300,
@@ -20,7 +20,7 @@ Widget DisplayCatalogItem(DiskProp? disk, context) {
       child: Stack(
         children: <Widget>[
           Padding(
-            padding: EdgeInsets.only(top: 25, left: 10),
+            padding: const EdgeInsets.only(top: 25, left: 10),
             child: Container(
               width: 120,
               height: 85,
@@ -40,7 +40,7 @@ Widget DisplayCatalogItem(DiskProp? disk, context) {
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(left: 150, top: 25),
+            padding: const EdgeInsets.only(left: 150, top: 25),
             child: SizedBox(
                 width: 200,
                 child: Text(
@@ -50,21 +50,21 @@ Widget DisplayCatalogItem(DiskProp? disk, context) {
                 )),
           ),
           Padding(
-            padding: EdgeInsets.only(left: 150, top: 85),
+            padding: const EdgeInsets.only(left: 150, top: 85),
             child: SizedBox(
                 width: 200,
                 child: Text(
                   "${disk?.cost as int}" " руб.",
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  style: const TextStyle(fontWeight: FontWeight.bold),
                 )),
           ),
           Padding(
-              padding: EdgeInsets.only(top: 110, left: 245),
+              padding: const EdgeInsets.only(top: 110, left: 245),
               child: AmazingLikeButton(
                 id: ((disk?.id).toString()),
               )),
           Padding(
-            padding: EdgeInsets.only(top: 70, left: 275),
+            padding: const EdgeInsets.only(top: 70, left: 275),
             child: Container(
                 width: 107,
                 height: 30,
@@ -91,7 +91,7 @@ Widget DisplayCatalogItem(DiskProp? disk, context) {
                 )),
           ),
           Padding(
-            padding: EdgeInsets.only(top: 105, left: 275),
+            padding: const EdgeInsets.only(top: 105, left: 275),
             child: Container(
               width: 110,
               height: 30,

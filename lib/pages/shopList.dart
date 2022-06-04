@@ -60,7 +60,7 @@ class _ShopListState extends State<ShopList> {
               return ListView.builder(
                   itemCount: snapshot.data?.length as int,
                   itemBuilder: (BuildContext context, int index) =>
-                      DisplayCatalogItem(
+                      displayCatalogItem(
                           snapshot.data?[index],
                           context));
             } else {

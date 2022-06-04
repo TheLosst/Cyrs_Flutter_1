@@ -1,4 +1,5 @@
 import 'package:cyrs_1/buttons/amazingLikeButton.dart';
+import 'package:cyrs_1/buttons/amazingRemoveFromCardButton.dart';
 import 'package:flutter/material.dart';
 
 import '../globals/globals.dart';
@@ -69,18 +70,7 @@ Widget ShoppingCardListView(context, int index) {
                     ),
                     borderRadius: const BorderRadius.all(Radius.circular(5))),
                 child: SizedBox(
-                  child: Transform.scale(
-                    scale: 3,
-                    child: IconButton(
-                      icon: const Icon(
-                        Icons.highlight_remove,
-                        size: 6,
-                      ),
-                      tooltip: null,
-                      onPressed:
-                          () {}, //TODO: Реализовать удаление товара из бд пользователя
-                    ),
-                  ),
+                  child: AmazingRemoveFromCardButton(context, index),
                 )),
           ),
           Padding(
