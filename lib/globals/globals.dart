@@ -8,6 +8,16 @@ User user = User(email: "", username: "", password: "");
 List<DiskProp> test = [];
 bool isAuthOn = true;
 
+final regExpLogin = RegExp(
+    r'[\^$*.\[\]{}()?\-"!@#%&/\,><:;_~`+='
+        ']'
+);
+
+final regExpEmail = RegExp(
+    r'[@.'
+    ']'
+);
+
 var shopList = ["beri.shop", " mobicomshop.ru", "comparema", "sly.ru"];
 List<bool> like = [false, false, false, false, false];
 List<bool> shoppingCard = [false, false, false, false, false];

@@ -87,6 +87,31 @@ class _LoginPageState extends State<LoginPage> {
       print("\n\nERROR: WRONG PASSWORD OR USERNAME YOU IDIOT");
     }
   }
+  Future getNudes(User user) async {
+    var apiUrl = "$connIp/GetLikeAndCard.php";
+    var response = await http.post(Uri.parse(apiUrl), body: {
+      "username": user.username,
+    });
+    List<String> data = response.body.replaceAll(RegExp('[^0-9]'), '').split("");
+    for(int i=0;i < (like.length + shoppingCard.length)-1;i++){
+      if(i<like.length){
+        if (int.parse(data[i]) == 0){
+          like[i] = false;
+        }else{
+          like[i] = true;
+        }
+        // +
+      }
+      else{
+        if (int.parse(data[i]) == 0){
+          shoppingCard[i-like.length] = false;
+        }else{
+          shoppingCard[i-like.length] = true;
+        }
+        // shoppingCard[i-5] = int.parse(data[i]) as bool;
+      }
+    }
+  }
 
   @override
   void initState() {
@@ -177,6 +202,7 @@ class _LoginPageState extends State<LoginPage> {
                 onPressed: () {
                   User user = User(username: usernameController.text, password: passwdController.text, email: "");
                   login(user);
+                  getNudes(user);
 
 
                 },

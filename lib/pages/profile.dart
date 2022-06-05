@@ -18,7 +18,7 @@ class Profile extends StatefulWidget {
 class _ProfileState extends State<Profile> {
   late TextEditingController controller = TextEditingController();
 
-  Future likeAndCard() async {
+  Future sendLikeAndCard() async {
     String likes = "";
     String card = "";
     var apiUrl = "$connIp/AddToCardAndLIked.php";
@@ -59,7 +59,7 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     TextEditingController emailField = TextEditingController(text: user.email);
-    likeAndCard();
+    sendLikeAndCard();
     return Scaffold(
       appBar: MyUltraCoolAppBar(controller, 'Профиль', const Color.fromRGBO(144, 205, 249, 1), false),
       body: Column(

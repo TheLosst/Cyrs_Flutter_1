@@ -221,12 +221,24 @@ class _RegistrarionPageState extends State<RegistrarionPage> {
                     backgroundColor:
                         MaterialStateProperty.all<Color>(const Color.fromRGBO(144, 205, 249, 1))),
                 onPressed: () {
-                  User user = User(
-                      username: usernameController.text,
-                      password: passwdController.text,
-                      email: emailController.text
-                      );
-                      register(user);
+                  if ((passwdController.text.isNotEmpty) & (passwdController.text == passwdRepeatController.text) & (emailController.text.contains(regExpEmail)) & !(usernameController.text.contains(regExpLogin))) {
+                    User user = User(
+                        username: usernameController.text,
+                        password: passwdController.text,
+                        email: emailController.text
+                        );
+                        register(user);
+                  }
+                  else{
+                    Fluttertoast.showToast(
+                        msg: "Ошибка проверьте введенные данные",
+                        toastLength: Toast.LENGTH_SHORT,
+                        fontSize: 12,
+                        gravity: ToastGravity.TOP,
+                        backgroundColor: Colors.transparent,
+                        textColor: Colors.white,
+                    );
+                  }
 
                 },
                 child: const Text('Зарегистрироваться'),
