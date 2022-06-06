@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 
-  Widget AmazingRemoveFromFavourtitesButton(BuildContext context, int id, rebuild) {
+  Widget AmazingRemoveFromFavourtitesButton(BuildContext context, int id, Function rebuild) {
     return Transform.scale(
       scale: 3,
       child: IconButton(
@@ -18,7 +18,7 @@ import 'package:flutter/material.dart';
             rebuild;
           } else {
             like[id] = false;
-            rebuild;
+            rebuild();
           }
         },
       ),

@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 
-Widget AmazingRemoveFromCardButton(BuildContext context, int id) {
+Widget AmazingRemoveFromCardButton(BuildContext context, int id, Function reload) {
   return Transform.scale(
     scale: 3,
     child: IconButton(
@@ -18,6 +18,7 @@ Widget AmazingRemoveFromCardButton(BuildContext context, int id) {
         } else {
           shoppingCard[id] = false;
         }
+        reload();
       },
     ),
   );

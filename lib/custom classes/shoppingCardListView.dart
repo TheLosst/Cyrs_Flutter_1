@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../globals/globals.dart';
 
-Widget ShoppingCardListView(context, int index) {
+Widget ShoppingCardListView(context, int index, Function reload) {
   if (shoppingCard[index]) {
     return Card(
         child: Container(
@@ -70,7 +70,7 @@ Widget ShoppingCardListView(context, int index) {
                     ),
                     borderRadius: const BorderRadius.all(Radius.circular(5))),
                 child: SizedBox(
-                  child: AmazingRemoveFromCardButton(context, index),
+                  child: AmazingRemoveFromCardButton(context, index, reload),
                 )),
           ),
           Padding(
@@ -132,7 +132,7 @@ Widget ShoppingCardListView(context, int index) {
                   ),
                   tooltip: null,
                   onPressed:
-                      () {}, //TODO: Реализовать удаление товара из бд пользователя
+                      () {},
                 ),
               ),
             ),

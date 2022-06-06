@@ -35,6 +35,10 @@ class _PayPageState extends State<PayPage> {
         sizeOfCard++;
       }
     }
+    void reload(){
+      setState((){});
+    }
+
     return Scaffold(
       appBar: MyUltraCoolAppBar(controller, "Оформление заказа",
           const Color.fromRGBO(144, 205, 249, 1), true),
@@ -47,7 +51,7 @@ class _PayPageState extends State<PayPage> {
                 height: 410,
                 child: ListView.builder(
                   itemBuilder: (BuildContext context, int index) =>
-                      ShoppingCardListView(context, index),
+                      ShoppingCardListView(context, index, reload),
                   itemCount: shoppingCard.length,
                 )),
             Padding(

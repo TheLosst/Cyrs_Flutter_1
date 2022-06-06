@@ -23,12 +23,8 @@ class _FavouritesState extends State<Favourites> {
         overlays: [SystemUiOverlay.bottom]);
   }
 
-  void rebuildAllChildren(BuildContext context) {
-    void rebuild(Element el) {
-      el.markNeedsBuild();
-      el.visitChildren(rebuild);
-    }
-    (context as Element).visitChildren(rebuild);
+  void rebuild() {
+    setState((){});
   }
 
   @override
@@ -37,7 +33,7 @@ class _FavouritesState extends State<Favourites> {
       appBar: MyUltraCoolAppBar(controller,"Избранное", Colors.black, true),
       body: Padding(
         padding: const EdgeInsets.only(top: 0, bottom: 0),
-        child: ListView.builder(itemBuilder: (BuildContext context, int index) => FavouritesCatalogView(context, index, rebuildAllChildren), itemCount: like.length,),
+        child: ListView.builder(itemBuilder: (BuildContext context, int index) => FavouritesCatalogView(context, index, rebuild), itemCount: like.length,),
       ),
     );
   }

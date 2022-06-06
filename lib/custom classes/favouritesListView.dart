@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../globals/globals.dart';
 
-Widget FavouritesCatalogView(context, int index, rebuild) {
+Widget FavouritesCatalogView(context, int index,Function rebuild) {
   print(index);
   if (like[index]) {
     return Card(
