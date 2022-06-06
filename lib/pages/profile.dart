@@ -1,4 +1,3 @@
-
 import 'package:cyrs_1/custom%20classes/customAppBar.dart';
 import 'package:cyrs_1/registartation%20&%20login/login.dart';
 import 'package:flutter/material.dart';
@@ -13,8 +12,6 @@ class Profile extends StatefulWidget {
   State<Profile> createState() => _ProfileState();
 }
 
-
-
 class _ProfileState extends State<Profile> {
   late TextEditingController controller = TextEditingController();
 
@@ -22,29 +19,23 @@ class _ProfileState extends State<Profile> {
     String likes = "";
     String card = "";
     var apiUrl = "$connIp/AddToCardAndLIked.php";
-    for (int i = 0; i < like.length; i++){
-      if (like[i]){
+    for (int i = 0; i < like.length; i++) {
+      if (like[i]) {
         likes += "1";
-      }
-      else{
+      } else {
         likes += "0";
       }
     }
-    for (int i = 0; i < shoppingCard.length; i++){
-        if (shoppingCard[i]){
-          card += "1";
-        }
-        else{
-          card += "0";
-        }
+    for (int i = 0; i < shoppingCard.length; i++) {
+      if (shoppingCard[i]) {
+        card += "1";
+      } else {
+        card += "0";
+      }
     }
     print("$likes  $card");
-    var response = await http.post(Uri.parse(apiUrl), body: {
-      "username": user.username,
-      "liked": likes,
-      "card": card
-    }
-    );
+    var response = await http.post(Uri.parse(apiUrl),
+        body: {"username": user.username, "liked": likes, "card": card});
     print(user.username);
     print(response.body);
   }
@@ -61,7 +52,8 @@ class _ProfileState extends State<Profile> {
     TextEditingController emailField = TextEditingController(text: user.email);
     sendLikeAndCard();
     return Scaffold(
-      appBar: MyUltraCoolAppBar(controller, 'Профиль', const Color.fromRGBO(144, 205, 249, 1), false),
+      appBar: MyUltraCoolAppBar(
+          controller, 'Профиль', const Color.fromRGBO(144, 205, 249, 1), false),
       body: Column(
         children: [
           Center(
@@ -71,24 +63,27 @@ class _ProfileState extends State<Profile> {
                 children: [
                   Image.asset("assets/images/profileBackGround.png"),
                   Padding(
-                    padding: const EdgeInsets.all(80),
-                    child: Container(
-                      decoration: BoxDecoration(
-                          color: const Color.fromRGBO(144, 205, 249, 1),
-                          border: Border.all(
+                    padding: const EdgeInsets.only(top: 60),
+                    child: Center(
+                      child: Container(
+                        decoration: BoxDecoration(
                             color: const Color.fromRGBO(144, 205, 249, 1),
-                          ),
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(500))),
-                      child: Image.asset("assets/images/profileTemplate.png"),
+                            border: Border.all(
+                              color: const Color.fromRGBO(144, 205, 249, 1),
+                            ),
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(500))),
+                        child: Image.asset("assets/images/profileTemplate.png"),
+                      ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 280),
-                    child: Center(
+                  Center(
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 260),
                       child: Text(
                         user.username,
-                        style: const TextStyle(color: Colors.blue, fontSize: 16),
+                        style:
+                            const TextStyle(color: Colors.blue, fontSize: 16),
                       ),
                     ),
                   )
@@ -97,23 +92,19 @@ class _ProfileState extends State<Profile> {
             ),
           ),
           Center(
-            child: Stack(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 20, right: 20),
-                  child: TextField(
-                    controller: emailField,
-                    enabled: false,
-                    readOnly: true,
-                    textAlign: TextAlign.center,
-                    decoration: const InputDecoration(
-                      prefixIcon: Icon(Icons.email),
-                      border: OutlineInputBorder(),
-                      labelText: "email:",
-                    ),
-                  ),
+            child: Padding(
+              padding: const EdgeInsets.only(left: 20, right: 20, top: 80),
+              child: TextField(
+                controller: emailField,
+                enabled: false,
+                readOnly: true,
+                textAlign: TextAlign.center,
+                decoration: const InputDecoration(
+                  prefixIcon: Icon(Icons.email),
+                  border: OutlineInputBorder(),
+                  labelText: "email:",
                 ),
-              ],
+              ),
             ),
           ),
           Padding(

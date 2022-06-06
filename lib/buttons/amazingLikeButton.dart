@@ -59,7 +59,7 @@ class _AmazingLikeButtonState extends State<AmazingLikeButton> {
                 }
                 print(like[int.parse(widget.id)-1]);
               });
-            }, //TODO: Добавить смену иконки при нажатии и отправлять пост запрос на добавление id в бд для избранного и корзины
+            },
           ),
         ));
   }

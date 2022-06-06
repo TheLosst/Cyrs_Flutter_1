@@ -1,4 +1,5 @@
 import 'package:cyrs_1/buttons/amazingRemoveFromFavourtitesButton.dart';
+import 'package:cyrs_1/buttons/amazingToCardButton.dart';
 
 import 'package:flutter/material.dart';
 
@@ -94,35 +95,13 @@ Widget FavouritesCatalogView(context, int index,Function rebuild) {
                       ),
                       tooltip: null,
                       onPressed:
-                          () {}, //TODO: Реализовать удаление товара из бд пользователя
+                          () {},
                     ),
                   )),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 105, left: 280),
-              child: Container(
-                  width: 100,
-                  height: 30,
-                  decoration: BoxDecoration(
-                      color: const Color.fromRGBO(195, 0, 70, 1),
-                      border: Border.all(
-                        color: const Color.fromRGBO(195, 0, 70, 1),
-                      ),
-                      borderRadius:
-                          const BorderRadius.all(Radius.circular(50))),
-                  child: ElevatedButton(
-                    style: ButtonStyle(
-                        shape:
-                            MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(50.0)),
-                        ),
-                        backgroundColor: MaterialStateProperty.all<Color>(
-                            const Color.fromRGBO(195, 0, 70, 1))),
-                    onPressed: () {},
-                    //TODO: Добавить пост запрос на добавление ид в бд при нажатии на кнопку
-                    child: const Text("В корзину"),
-                  )),
+              padding: const EdgeInsets.only(top: 95, left: 280),
+              child: AmazingShopButton(id: (index+1).toString())
             ),
           ],
         ),

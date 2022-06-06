@@ -1,4 +1,4 @@
-import 'package:cyrs_1/buttons/amazingBuyButton.dart';
+import 'package:cyrs_1/buttons/finishingPayButton.dart';
 import 'package:cyrs_1/custom%20classes/customAppBar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -57,7 +57,7 @@ class _OrderPaymentState extends State<OrderPayment> {
             const Center(
               child: Padding(
                 padding: EdgeInsets.only(bottom: 200,),
-                child: AmazingBuyButton(id: "kek"),
+                child: AmazingFinishPay(),
               ),
             )
           ],
