@@ -59,7 +59,7 @@ class _RegistrarionPageState extends State<RegistrarionPage> {
             gravity: ToastGravity.TOP,
             backgroundColor: Colors.transparent,
             textColor: Colors.white);
-        print("\n\nERROR MUDAK\nUSER ALREADY EXISTS: ${user.username}");
+        print("USER ALREADY EXISTS: ${user.username}");
         break;
       case ("Success"):
         print("\n\nSUCCESS\nUSER ADDED: ${user.username}");

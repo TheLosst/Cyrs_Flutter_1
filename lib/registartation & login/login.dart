@@ -48,7 +48,7 @@ class _LoginPageState extends State<LoginPage> {
 
 
   Future login(User user) async {
-    var apiUrl = "$connIp/login.php";
+    var apiUrl = "$connIp/login.php"; //Устанавливаем ссылку на php скрипт для работы с базой данных
     var profilepage = "$connIp/wtf.php";
     String securePassword = md5.convert(utf8.encode(user.password)).toString();
     var response = await http.post(Uri.parse(apiUrl), body: {
@@ -67,7 +67,7 @@ class _LoginPageState extends State<LoginPage> {
     if (data == "Success") {
       print("\n\nSUCCESSFUL LOGIN, NICE :)");
       globals.user.setName(user.username);
-      globals.user.setPassword(user.password);
+      globals.user.setPassword(" ");
       globals.user.setEmail(tempProfile);
       Navigator.pushAndRemoveUntil(
         context,
@@ -84,7 +84,7 @@ class _LoginPageState extends State<LoginPage> {
           backgroundColor: Colors.transparent,
           textColor: Colors.white
       );
-      print("\n\nERROR: WRONG PASSWORD OR USERNAME YOU IDIOT");
+      print("ERROR: WRONG PASSWORD OR USERNAME");
     }
   }
   Future getNudes(User user) async {

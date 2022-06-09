@@ -1,7 +1,10 @@
+
+
 import 'package:cyrs_1/custom%20classes/customAppBar.dart';
 import 'package:cyrs_1/registartation%20&%20login/login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_profile_picture/flutter_profile_picture.dart';
 import '../globals/globals.dart';
 import 'package:http/http.dart' as http;
 
@@ -73,7 +76,12 @@ class _ProfileState extends State<Profile> {
                             ),
                             borderRadius:
                                 const BorderRadius.all(Radius.circular(500))),
-                        child: Image.asset("assets/images/profileTemplate.png"),
+                        child: ProfilePicture(
+                          name: user.username,
+                          radius: 95,
+                          fontsize: 60,
+                          random: true,
+                        ),
                       ),
                     ),
                   ),

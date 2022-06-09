@@ -48,29 +48,4 @@ class _ShoppingCardState extends State<ShoppingCard> {
     );
   }
 }
-// Padding(
-// padding: EdgeInsets.only(top: 105, left: 280),
-// child: Container(
-// width: 100,
-// height: 30,
-// decoration: BoxDecoration(
-// color: const Color.fromRGBO(195, 0, 70, 1),
-// border: Border.all(
-// color: const Color.fromRGBO(195, 0, 70, 1),
-// ),
-// borderRadius:
-// const BorderRadius.all(Radius.circular(50))),
-// child: ElevatedButton(
-// style: ButtonStyle(
-// shape: MaterialStateProperty.all<
-//     RoundedRectangleBorder>(
-// RoundedRectangleBorder(
-// borderRadius: BorderRadius.circular(50.0)),
-// ),
-// backgroundColor: MaterialStateProperty.all<Color>(
-// const Color.fromRGBO(195, 0, 70, 1))),
-// onPressed: () {},
-//
-// child: const Text("В корзину"),
-// )),
-// ),
+

@@ -44,7 +44,7 @@ class _ShopListState extends State<ShopList> {
       print(buff);
       return buff.map<DiskProp>(DiskProp.fromJson).toList();
     } else {
-      throw Exception('Ойбаный Ёобаный ОБЭМЭ!');
+      throw Exception('Все сломалось!');
     }
   }
 

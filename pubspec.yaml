@@ -50,6 +50,7 @@ dependencies:
   progress_indicators: ^1.0.0
   fading_image_button: ^0.10.0+0
   transparent_image_button: ^0.2.0
+  flutter_profile_picture: ^2.0.0
 
 dev_dependencies:
   flutter_test:
