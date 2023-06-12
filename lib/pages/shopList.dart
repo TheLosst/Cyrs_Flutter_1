@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:cyrs_1/custom%20classes/catalogListDisk.dart';
+import 'package:cyrs_1/custom%20classes/catalogList.dart';
 import 'package:cyrs_1/custom%20classes/customAppBar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -18,7 +18,7 @@ class ShopList extends StatefulWidget {
 
 class _ShopListState extends State<ShopList> {
   late TextEditingController controller = TextEditingController();
-  late Future<DiskProp> futureDiskProp;
+  late Future<AppsProps> futureDiskProp;
 
   @override
   initState() {
@@ -27,7 +27,7 @@ class _ShopListState extends State<ShopList> {
         overlays: [SystemUiOverlay.bottom]);
   }
 
-  Future<List<DiskProp>> createDiskProp() async {
+  Future<List<AppsProps>> createDiskProp() async {
     //List<DiskProp> test = await fetchDiskDescr();
     test = await fetchDiskDescr();
     return test;
@@ -37,12 +37,12 @@ class _ShopListState extends State<ShopList> {
   //   return http.get(Uri.parse('$connIp/DiskProp.json'));
   // }
 
-  Future<List<DiskProp>> fetchDiskDescr() async {
+  Future<List<AppsProps>> fetchDiskDescr() async {
     final response = await http.get(Uri.parse('$connIp/DiskProp.json'));
     if (response.statusCode == 200) {
       var buff = json.decode(response.body);
       print(buff);
-      return buff.map<DiskProp>(DiskProp.fromJson).toList();
+      return buff.map<AppsProps>(AppsProps.fromJson).toList();
     } else {
       throw Exception('Все сломалось!');
     }
@@ -52,10 +52,10 @@ class _ShopListState extends State<ShopList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyUltraCoolAppBar(controller, "Каталог", Colors.black, false),
-      body: FutureBuilder<List<DiskProp>?>(
+      body: FutureBuilder<List<AppsProps>?>(
           future: createDiskProp(),
           builder:
-              (BuildContext context, AsyncSnapshot<List<DiskProp>?> snapshot) {
+              (BuildContext context, AsyncSnapshot<List<AppsProps>?> snapshot) {
             if (snapshot.connectionState == ConnectionState.done) {
               return ListView.builder(
                   itemCount: snapshot.data?.length as int,

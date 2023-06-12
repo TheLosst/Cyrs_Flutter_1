@@ -1,9 +1,18 @@
 import 'dart:core';
 
+class AppsProps {
+  AppsProps(
+      {required this.id,
+      required this.name,
+      required this.formfactor,
+      required this.capacity,
+      required this.speed,
+      required this.interfaces,
+      required this.deadworktime,
+      required this.size,
+      required this.cost,
+      required this.urlToImg});
 
-class DiskProp
-{
-  DiskProp({required this.id, required this.name,required this.formfactor, required this.capacity, required this.speed, required this.interfaces, required this.deadworktime, required this.size, required this.cost, required this.urlToImg});
   late int id;
   late String name;
   late String formfactor;
@@ -15,9 +24,15 @@ class DiskProp
   late int cost;
   late String urlToImg;
 
-
-
-  static DiskProp fromJson(json) =>
-      DiskProp(id: json['id'], name: json['name'], formfactor: json['formfactor'], capacity: json['capacity'], speed: json['speed'], interfaces: json['interfaces'], deadworktime: json['deadworktime'], size: json['size'], cost: json['cost'], urlToImg: json['urlToImg']);
-
+  static AppsProps fromJson(json) => AppsProps(
+      id: json['id'],
+      name: json['name'],
+      formfactor: json['formfactor'],
+      capacity: json['capacity'],
+      speed: json['speed'],
+      interfaces: json['interfaces'],
+      deadworktime: json['deadworktime'],
+      size: json['size'],
+      cost: json['cost'],
+      urlToImg: json['urlToImg']);
 }

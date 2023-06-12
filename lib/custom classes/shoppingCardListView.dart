@@ -139,7 +139,7 @@ Widget ShoppingCardListView(context, int index, Function reload) {
           ),
           const Padding(
             padding: EdgeInsets.only(left: 327, top: 113),
-            child: Text("lol2"),
+            child: Text("0"),
           )
         ],
       ),

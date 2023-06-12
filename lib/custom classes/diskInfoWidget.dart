@@ -1,7 +1,7 @@
 import 'package:cyrs_1/custom%20classes/diskProreties.dart';
 import 'package:flutter/material.dart';
 
-Widget diskInfoView(DiskProp? disk) {
+Widget diskInfoView(AppsProps? disk) {
   List<String> options = [
     (disk?.formfactor as String),
     (disk?.capacity as String),
@@ -11,12 +11,12 @@ Widget diskInfoView(DiskProp? disk) {
     (disk?.size as String),
   ];
   List<String> russNames = [
-    "Форм-фактор: ",
-    "Емкость: ",
-    "Скорость: ",
-    "Интерфейс: ",
-    "Время наработки на отказ: ",
-    "Габариты: "
+    "Платформа: ",
+    "Дата выхода: ",
+    "Платформы: ",
+    "Автор: ",
+    "Лицензия: ",
+    "Последняя версия: "
   ];
   return SizedBox(
     height: 150,

@@ -7,6 +7,7 @@ class User{
   String password;
   String email = "Server Error";
 
+
   void setName(String name){
     username = name;
   }

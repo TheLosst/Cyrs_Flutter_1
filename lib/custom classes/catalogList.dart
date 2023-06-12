@@ -1,11 +1,11 @@
 import 'package:cyrs_1/buttons/amazingLikeButton.dart';
 import 'package:cyrs_1/buttons/amazingToCardButton.dart';
 import 'package:cyrs_1/custom%20classes/diskProreties.dart';
-import 'package:cyrs_1/pages/diskPropPage.dart';
+import 'package:cyrs_1/pages/itemList.dart';
 import 'package:flutter/material.dart';
 
 
-Widget displayCatalogItem(DiskProp? disk, context) {
+Widget displayCatalogItem(AppsProps? disk, context) {
   return Card(
     child: Container(
       width: 300,
@@ -84,7 +84,7 @@ Widget displayCatalogItem(DiskProp? disk, context) {
                           const Color.fromRGBO(195, 0, 70, 1))),
                   onPressed: () {
                     Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => DiskPropPage(disk: disk),
+                      builder: (context) => ItemList(disk: disk),
                     ));
                   },
                   child: const Text("Подробнее"),

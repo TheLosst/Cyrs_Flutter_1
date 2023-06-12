@@ -7,15 +7,15 @@ import 'package:flutter/material.dart';
 
 import '../globals/globals.dart';
 
-class DiskPropPage extends StatefulWidget {
-  const DiskPropPage({Key? key, required this.disk}) : super(key: key);
-  final DiskProp? disk;
+class ItemList extends StatefulWidget {
+  const ItemList({Key? key, required this.disk}) : super(key: key);
+  final AppsProps? disk;
 
   @override
-  State<DiskPropPage> createState() => _DiskPropPageState();
+  State<ItemList> createState() => _ItemListState();
 }
 
-class _DiskPropPageState extends State<DiskPropPage> {
+class _ItemListState extends State<ItemList> {
   TextEditingController get controller =>
       TextEditingController(text: "Функция не доступна");
   String dropdownvalue = "beri.shop";
